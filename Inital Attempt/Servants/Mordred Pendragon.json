@@ -1,0 +1,10 @@
+{
+  "_id": "5ce2e5a27c76d24e306b74f9",
+  "Icon": "Pictures/Mordred.png",
+  "HP": 100,
+  "Move": 3,
+  "Name": "Mordred Pendragon",
+  "Age": 21,
+  "NP": "Clarent Blood Arthur",
+  "NPClass": "Anti-Personnel"
+}

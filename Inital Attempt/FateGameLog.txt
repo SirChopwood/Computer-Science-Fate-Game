@@ -1,0 +1,6 @@
+[2019/06/24 15:33:43] [INIT]    C:\Users\pokem\Desktop\Fate Game\GlobalLibrary.py
+[2019/06/24 15:33:43] [INIT]    C:\Users\pokem\Desktop\Fate Game\GUI.py
+[2019/06/24 15:33:43] [INIT]    C:\Users\pokem\Desktop\Fate Game\Mongo.py
+[2019/06/24 15:33:43] [INIT]    C:\Users\pokem\Desktop\Fate Game\Servants.py
+[2019/06/24 15:33:43] [INIT]    C:\Users\pokem\Desktop\Fate Game\GridManager.py
+[2019/06/24 15:33:43] [INIT]    C:/Users/pokem/Desktop/Fate Game/Main.py

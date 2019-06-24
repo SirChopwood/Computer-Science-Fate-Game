@@ -1,0 +1,10 @@
+{
+  "_id": "5ce2e7490ab638b199cb6784",
+  "Icon": "Pictures/Jeanne.png",
+  "HP": 100,
+  "Move": 3,
+  "Name": "Jeanne D'arc",
+  "Age": 21,
+  "NP": "Luminosite Eternelle",
+  "NPClass": "Barrier"
+}
