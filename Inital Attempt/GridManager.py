@@ -18,6 +18,10 @@ class Main:
         for i in range(len(self.grid)):
             print(self.grid[i])
 
+    def get_grid_pos(self, x, y):
+        entity = self.grid[y][x]
+        return entity
+
     def set_grid_pos(self, x, y, entity):
         self.grid[y][x] = entity
-        self.GUI.draw_image(image_path=entity['Icon'], pos_x=x, pos_y=y, grid_snap=True, scale=None)
+        self.GUI.draw_servant(entity=entity, pos_x=x, pos_y=y, grid_snap=True, scale=None)

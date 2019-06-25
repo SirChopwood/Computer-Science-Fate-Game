@@ -1,5 +1,5 @@
 import tkinter
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageChops
 import GlobalLibrary
 
 GlobalLibrary.initalise(__file__)
@@ -16,9 +16,13 @@ class Main:
         # Set ""Global"" Variables
         self.grid_amount = grid_amount  # Number of Boxes
         self.grid_size = grid_size  # Box Size
+        self.grid_manager = None
         self.image_array = []
+        self.image_ref_array = []
         self.monitor_resolution_x = window.winfo_screenwidth()
         self.monitor_resolution_y = window.winfo_screenheight()
+        self.grid_origin_x = self.monitor_resolution_x / 2 + (-int(self.grid_amount / 2) * self.grid_size)
+        self.grid_origin_y = self.monitor_resolution_y / 2 + (-int(self.grid_amount / 2) * self.grid_size)
         # Create main Canvas
         self.canvas = tkinter.Canvas(window, width=self.monitor_resolution_x, height=self.monitor_resolution_y,
                                      bg="#333337")
@@ -32,10 +36,6 @@ class Main:
 
         #Set Mouse Binds
         self.canvas.bind("<Button-1>", self.click)
-
-    def click(self, event):
-        print(event.x,event.y)
-
 
     def start_mainloop(self):
         self.window.mainloop()
@@ -57,19 +57,30 @@ class Main:
             y1 = monitor_y + (i * self.grid_size)
             self.canvas.create_line(x1, y1, x2, y1, fill="#666666", width=2)  # Horizontal Lines
 
-    def draw_image(self, image_path, pos_x, pos_y, grid_snap, scale):
-        new_image = Image.open(image_path)  # Open Image
+    def draw_servant(self, entity, pos_x, pos_y, grid_snap, scale):
+        new_image = Image.open(entity['Icon'])  # Open Image
         if isinstance(scale, int):
             new_image = new_image.resize((scale, scale), Image.ANTIALIAS)  # Resize Image + AA
         else:
             new_image = new_image.resize((self.grid_size, self.grid_size), Image.ANTIALIAS)  # Resize Image + AA
         new_image = ImageTk.PhotoImage(new_image)  # Convert to Tk PhotoImage Object
         if grid_snap:
-            new_pos_x = pos_x * self.grid_size + (self.monitor_resolution_x / 2)  # Convert x pos to Grid ref
-            new_pos_y = pos_y * self.grid_size + (self.monitor_resolution_y / 2)  # Convert y pos to Grid ref
+            new_pos_x = pos_x * self.grid_size + self.grid_origin_x  # Convert x pos to Grid ref
+            new_pos_y = pos_y * self.grid_size + self.grid_origin_y  # Convert y pos to Grid ref
 
-            self.canvas.create_image(new_pos_x, new_pos_y, image=new_image, anchor="nw")  # Place image at grid ref
+            self.image_ref_array.append({'Name': entity['Name'],
+                                         'Image': self.canvas.create_image(new_pos_x, new_pos_y, image=new_image,
+                                                                           anchor="nw"), 'File': entity['Icon']})  # Place image at absolute position
         else:
-            self.canvas.create_image(pos_x, pos_y, image=new_image, anchor="nw")  # Place image at absolute position
+            self.image_ref_array.append({'Name': entity['Name'],'Image': self.canvas.create_image(pos_x, pos_y, image=new_image, anchor="nw"), 'File': entity['Icon']})  # Place image at absolute position
         self.image_array.append(new_image)  # Store Image file in array to preserve
-        self.canvas.bind(new_image, )
+
+    def click(self, event):
+        clicked_x = int((event.x - self.grid_origin_x) / self.grid_size)
+        clicked_y = int((event.y - self.grid_origin_y) / self.grid_size)
+        click_selection = self.grid_manager.get_grid_pos(clicked_x, clicked_y)
+        if click_selection != "#":
+            GlobalLibrary.debug(click_selection['Name'] + " selected.")
+            for image_ref in self.image_ref_array:
+                if image_ref['Name'] == click_selection['Name']:
+                    return
