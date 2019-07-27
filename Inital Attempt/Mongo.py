@@ -2,16 +2,22 @@ import pymongo
 import os
 import json
 import GlobalLibrary
+import sys
 
 GlobalLibrary.initalise(__file__)
 
-
+# FateGameClient bWcLUFH0J6nT6fQr
 class Main:
 
     def __init__(self):
         GlobalLibrary.initalise(Main.__name__)
-        self.server_ref = pymongo.MongoClient("mongodb+srv://SirChopwood:ChangeMe1@fategame-uhen9.mongodb.net/test")
-        GlobalLibrary.notice("Connection to Mongo Server established!")
+        GlobalLibrary.notice("Connecting to Mongo Server!")
+        try:
+            self.server_ref = pymongo.MongoClient("mongodb+srv://FateGameClient:bWcLUFH0J6nT6fQr@fategame-uhen9.mongodb.net/test?retryWrites=true&w=majority")
+        except pymongo.errors.AutoReconnect:
+            GlobalLibrary.error("Connection Failed, Reconnecting!")
+        except pymongo.errors.ConnectionFailure:
+            GlobalLibrary.error("Connection Failed!")
         self.collection_ref = self.server_ref['fate']  # Open the Collection "fate"
         self.database_servants = self.collection_ref['servants']  # Open the Database "servants"
 
@@ -41,10 +47,12 @@ class Main:
                         os.remove(file_path)  # Delete the old file
                         with open(file_path, 'w') as file_ref:  # Create a new file
                             json.dump(obj=database_document, fp=file_ref, ensure_ascii=False, indent=2)  # Write to file
-            else:
-                database_document['_id'] = str(database_document['_id'])  # Converts the ID value to string
-                with open(file_path, 'w') as file_ref:  # Create a new file
-                    json.dump(obj=database_document, fp=file_ref, ensure_ascii=False, indent=2)  # Write to file
-                GlobalLibrary.debug("File Not Found - " + file_path)
+                else:
+                    database_document['_id'] = str(database_document['_id'])  # Converts the ID value to string
+                    with open(file_path, 'w') as file_ref:  # Create a new file
+                        json.dump(obj=database_document, fp=file_ref, ensure_ascii=False, indent=2)  # Write to file
+                    GlobalLibrary.debug("File Not Found - " + file_path)
+            GlobalLibrary.notice("File Sync Complete!")
         except pymongo.errors.ServerSelectionTimeoutError:  # Error if connection times out
             GlobalLibrary.error("Connection Failed")
+            sys.exit()

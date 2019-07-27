@@ -1,6 +1,7 @@
 import tkinter
-from PIL import Image, ImageTk, ImageChops
+from PIL import Image, ImageTk
 import GlobalLibrary
+import Servants
 
 GlobalLibrary.initalise(__file__)
 
@@ -19,10 +20,12 @@ class Main:
         self.grid_manager = None
         self.image_array = []
         self.image_ref_array = []
+        self.selection_array = []
         self.monitor_resolution_x = window.winfo_screenwidth()
         self.monitor_resolution_y = window.winfo_screenheight()
         self.grid_origin_x = self.monitor_resolution_x / 2 + (-int(self.grid_amount / 2) * self.grid_size)
         self.grid_origin_y = self.monitor_resolution_y / 2 + (-int(self.grid_amount / 2) * self.grid_size)
+        self.selected_servant = object
         # Create main Canvas
         self.canvas = tkinter.Canvas(window, width=self.monitor_resolution_x, height=self.monitor_resolution_y,
                                      bg="#333337")
@@ -34,7 +37,7 @@ class Main:
         self.root_menu.add_cascade(label="File", menu=self.file_menu)
         self.file_menu.add_command(label="Exit", command=window.quit)
 
-        #Set Mouse Binds
+        # Set Mouse Binds
         self.canvas.bind("<Button-1>", self.click)
 
     def start_mainloop(self):
@@ -70,17 +73,68 @@ class Main:
 
             self.image_ref_array.append({'Name': entity['Name'],
                                          'Image': self.canvas.create_image(new_pos_x, new_pos_y, image=new_image,
-                                                                           anchor="nw"), 'File': entity['Icon']})  # Place image at absolute position
+                                                                           anchor="nw"),
+                                         'File': entity['Icon']})  # Place image at absolute position
         else:
-            self.image_ref_array.append({'Name': entity['Name'],'Image': self.canvas.create_image(pos_x, pos_y, image=new_image, anchor="nw"), 'File': entity['Icon']})  # Place image at absolute position
+            self.image_ref_array.append(
+                {'Name': entity['Name'], 'Image': self.canvas.create_image(pos_x, pos_y, image=new_image, anchor="nw"),
+                 'File': entity['Icon']})  # Place image at absolute position
         self.image_array.append(new_image)  # Store Image file in array to preserve
 
     def click(self, event):
-        clicked_x = int((event.x - self.grid_origin_x) / self.grid_size)
-        clicked_y = int((event.y - self.grid_origin_y) / self.grid_size)
-        click_selection = self.grid_manager.get_grid_pos(clicked_x, clicked_y)
-        if click_selection != "#":
-            GlobalLibrary.debug(click_selection['Name'] + " selected.")
+        self.grid_clicked_x = int((event.x - self.grid_origin_x) / self.grid_size)
+        self.grid_clicked_y = int((event.y - self.grid_origin_y) / self.grid_size)
+        click_selection = self.grid_manager.get_grid_pos(self.grid_clicked_x, self.grid_clicked_y)
+
+        for shape in self.selection_array:
+            self.canvas.delete(shape)
+        self.selection_array.clear()
+        if click_selection != "#" and click_selection is not None:
             for image_ref in self.image_ref_array:
                 if image_ref['Name'] == click_selection['Name']:
-                    return
+                    self.servant_selected_move(click_selection)
+
+    def servant_selected_move(self, click_selection):
+        GlobalLibrary.debug(click_selection['Name'] + " selected.")
+        selected_servant = Servants.get_servant(click_selection['Name'])
+        selected_servant_move = (selected_servant['Move'] * 2) + 1
+        selected_servant_move_start_x = self.grid_origin_x + (
+                (self.grid_clicked_x * self.grid_size) - ((selected_servant_move / 2 - 0.5) * self.grid_size))
+        selected_servant_move_start_y = self.grid_origin_y + (
+                (self.grid_clicked_y * self.grid_size) - ((selected_servant_move / 2 - 0.5) * self.grid_size))
+        for row in range(selected_servant_move):
+            for column in range(selected_servant_move):
+                print(int(selected_servant_move_start_x//self.grid_size/2), selected_servant_move_start_y//self.grid_size)
+                x = int(column+(selected_servant_move_start_x//self.grid_size/2))
+                y = int(row+(selected_servant_move_start_y//self.grid_size))
+                #print(x, y)
+                if self.grid_manager.get_grid_pos(x,y) == "#":
+                    x_start = selected_servant_move_start_x + (column * self.grid_size)
+                    y_start = selected_servant_move_start_y + (row * self.grid_size)
+                    x_end = selected_servant_move_start_x + ((column + 1) * self.grid_size)
+                    y_end = selected_servant_move_start_y + ((row + 1) * self.grid_size)
+                    selection_box = self.canvas.create_rectangle(x_start, y_start, x_end, y_end, fill="#88ff88",
+                                                                 tags="selection_box")
+                    self.selection_array.append(selection_box)
+        self.selected_servant = selected_servant
+        self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_move_click)
+        self.selection_array.append(
+            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 50,
+                                    text=selected_servant['Name'], fill="#ffffff",
+                                    font=("Coolvetica Rg", 20)))
+
+    def servant_selected_move_click(self, event):
+        selected_servant = self.selected_servant
+        self.selected_servant = object
+        print(selected_servant)
+        new_x = int((event.x - self.grid_origin_x) / self.grid_size)
+        new_y = int((event.y - self.grid_origin_y) / self.grid_size)
+        self.grid_manager.move_grid_pos(self.grid_clicked_x, self.grid_clicked_y, new_x, new_y, is_entity=True)
+
+    def move_servant(self, entity, old_x, old_y, new_x, new_y):
+        move_x = (new_x - old_x) * self.grid_size
+        move_y = (new_y - old_y) * self.grid_size
+        for image in self.image_ref_array:
+            if image['Name'] == entity['Name']:
+                image_ref = image['Image']
+                self.canvas.move(image_ref, move_x, move_y)

@@ -1,18 +1,18 @@
-[2019/06/25 02:26:30] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\GlobalLibrary.py
-[2019/06/25 02:26:30] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\GUI.py
-[2019/06/25 02:26:30] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Mongo.py
-[2019/06/25 02:26:30] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Servants.py
-[2019/06/25 02:26:30] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\GridManager.py
-[2019/06/25 02:26:30] [INIT]    C:/Users/pokem/Desktop/Computer-Science-Fate-Game/Inital Attempt/Main.py
-[2019/06/25 02:26:30] [INIT]    Main
-[2019/06/25 02:26:30] [NOTICE]  Connection to Mongo Server established!
-[2019/06/25 02:26:31] [DEBUG]   File Found - Servants/Mordred Pendragon.json
-[2019/06/25 02:26:31] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
-[2019/06/25 02:26:31] [DEBUG]   File Found - Servants/Jeanne D'arc.json
-[2019/06/25 02:26:31] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
-[2019/06/25 02:26:31] [DEBUG]   File Not Found - Servants/Jeanne D'arc.json
-[2019/06/25 02:26:32] [DEBUG]   Mordred Pendragon selected.
-[2019/06/25 02:26:32] [DEBUG]   Mordred Pendragon selected.
-[2019/06/25 02:26:32] [DEBUG]   Mordred Pendragon selected.
-[2019/06/25 02:26:32] [DEBUG]   Mordred Pendragon selected.
-[2019/06/25 02:26:33] [DEBUG]   Jeanne D'arc selected.
+[2019/07/17 00:41:27] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\GlobalLibrary.py
+[2019/07/17 00:41:27] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Servants.py
+[2019/07/17 00:41:27] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\GUI.py
+[2019/07/17 00:41:27] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Mongo.py
+[2019/07/17 00:41:27] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\GridManager.py
+[2019/07/17 00:41:27] [INIT]    C:/Users/pokem/Desktop/Computer-Science-Fate-Game/Inital Attempt/Main.py
+[2019/07/17 00:41:29] [DEBUG]   Illyasviel von Einzbern selected.
+[2019/07/17 00:41:30] [DEBUG]   Mordred Pendragon selected.
+[2019/07/17 00:41:33] [DEBUG]   Jeanne D'arc selected.
+[2019/07/17 00:41:38] [DEBUG]   Mashu Kyrielight selected.
+[2019/07/17 00:41:41] [DEBUG]   Jeanne D'arc selected.
+[2019/07/17 00:41:42] [DEBUG]   Mashu Kyrielight selected.
+[2019/07/17 00:41:49] [DEBUG]   Jeanne D'arc selected.
+[2019/07/17 00:41:50] [DEBUG]   Illyasviel von Einzbern selected.
+[2019/07/17 00:41:52] [DEBUG]   Mordred Pendragon selected.
+[2019/07/17 00:41:56] [DEBUG]   Jeanne D'arc selected.
+[2019/07/17 00:43:22] [DEBUG]   Mashu Kyrielight selected.
+[2019/07/17 00:43:25] [DEBUG]   Mashu Kyrielight selected.
