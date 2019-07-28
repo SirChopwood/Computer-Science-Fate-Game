@@ -1,0 +1,10 @@
+{
+  "_id": "5d3d1a9a1c9d4400009766f9",
+  "Icon": "Pictures/KidGil.png",
+  "HP": 1571,
+  "ATK": 1429,
+  "Move": 3,
+  "Name": "Kid Gilgamesh",
+  "NP": "Gate of Babylon",
+  "NPClass": "Anti-Unit"
+}
