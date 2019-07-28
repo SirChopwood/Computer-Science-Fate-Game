@@ -1,0 +1,10 @@
+{
+  "_id": "5d3d243c1c9d440000cc07ea",
+  "Icon": "Pictures/Astolfo.png",
+  "HP": 1787,
+  "ATK": 1489,
+  "Move": 4,
+  "Name": "Astolfo",
+  "NP": "Hippogriff",
+  "NPClass": "Anti-Army"
+}

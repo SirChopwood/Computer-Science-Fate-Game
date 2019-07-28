@@ -9,7 +9,7 @@ GlobalLibrary.initalise(__file__)
 
 class Main:
 
-    def __init__(self, grid_amount, grid_size):
+    def __init__(self, grid_amount, grid_size, turn_tracker, player_stats):
         window = tkinter.Tk()
         self.window = window
         window.attributes("-fullscreen", True)
@@ -19,6 +19,8 @@ class Main:
         self.grid_amount = grid_amount  # Number of Boxes
         self.grid_size = grid_size  # Box Size
         self.grid_manager = None
+        self.turn_tracker = turn_tracker
+        self.player_stats = player_stats
         self.image_array = []
         self.image_ref_array = []
         self.selection_array = []
@@ -40,6 +42,10 @@ class Main:
 
         # Set Mouse Binds
         self.canvas.bind("<Button-1>", self.click)
+
+        self.turn_counter_text = (
+            self.canvas.create_text(self.monitor_resolution_x / 2, 50, text="DEBUG", fill="#ffffff",
+                                    font=("Coolvetica Rg", 20)))
 
     def start_mainloop(self):
         self.window.mainloop()
@@ -92,21 +98,23 @@ class Main:
         self.selection_array.clear()
         if click_selection != "#" and click_selection is not None:
             for image_ref in self.image_ref_array:
-                if image_ref['Name'] == click_selection['Name']:
+                if image_ref['Name'] == click_selection['Name'] == self.turn_tracker.TurnCounterDict[
+                    self.turn_tracker.CurrentTurnCounter]:
                     self.servant_selected_move(click_selection)
 
     def servant_selected_move(self, click_selection):
         GlobalLibrary.debug(click_selection['Name'] + " selected.")
         selected_servant = Servants.get_servant(click_selection['Name'])
         selected_servant_move = (selected_servant['Move'] * 2) + 1
-        selected_servant_move_start_x = ((self.grid_clicked_x * self.grid_size) - (selected_servant['Move'] * self.grid_size))
-        selected_servant_move_start_y = ((self.grid_clicked_y * self.grid_size) - (selected_servant['Move'] * self.grid_size))
+        selected_servant_move_start_x = (
+                (self.grid_clicked_x * self.grid_size) - (selected_servant['Move'] * self.grid_size))
+        selected_servant_move_start_y = (
+                (self.grid_clicked_y * self.grid_size) - (selected_servant['Move'] * self.grid_size))
         for row in range(selected_servant_move):
             for column in range(selected_servant_move):
                 x = int(column + (selected_servant_move_start_x / self.grid_size))
                 y = int(row + (selected_servant_move_start_y / self.grid_size))
-                print(x,y,self.grid_manager.get_grid_pos(x, y))
-                if 0 <= x < (self.grid_amount-2) and 0 <= y < (self.grid_amount -2):
+                if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
                     if self.grid_manager.get_grid_pos(x, y) == "#":
                         x_start = selected_servant_move_start_x + (column * self.grid_size) + self.grid_origin_x
                         y_start = selected_servant_move_start_y + (row * self.grid_size) + self.grid_origin_y
@@ -123,7 +131,6 @@ class Main:
                                     font=("Coolvetica Rg", 20)))
 
     def servant_selected_move_click(self, event):
-        selected_servant = self.selected_servant
         self.selected_servant = object
         new_x = int((event.x - self.grid_origin_x) / self.grid_size)
         new_y = int((event.y - self.grid_origin_y) / self.grid_size)
@@ -136,3 +143,8 @@ class Main:
             if image['Name'] == entity['Name']:
                 image_ref = image['Image']
                 self.canvas.move(image_ref, move_x, move_y)
+        self.turn_tracker.next_turn()
+
+    def new_turn_display(self, turn, entity_name, colour):
+        text = str("Turn " + str(turn) + " - " + str(entity_name))
+        self.canvas.itemconfigure(self.turn_counter_text, text=text, fill=colour)

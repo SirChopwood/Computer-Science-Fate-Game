@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="GlobalLibrary" />
+          <option value="GridManager" />
+          <option value="Servants" />
+          <option value="Mongo" />
+          <option value="GUI" />
+          <option value="PlayerStats" />
+          <option value="TurnTracker" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
