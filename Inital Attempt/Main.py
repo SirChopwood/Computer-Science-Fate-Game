@@ -1,9 +1,8 @@
 import GUI
+import GlobalLibrary
+import GridManager
 import Mongo
 import Servants
-import json
-import GridManager
-import GlobalLibrary
 
 GlobalLibrary.initalise(__file__)
 
@@ -12,8 +11,8 @@ grid_size = 45
 
 main_interface = GUI.Main(grid_amount=grid_amount, grid_size=grid_size)
 main_interface.draw_grid()
-# main_database = Mongo.Main()
-# main_database.sync_files()
+main_database = Mongo.Main()
+main_database.sync_files()
 
 grid_manager = GridManager.Main(grid_amount=grid_amount, grid_size=grid_size, GUI=main_interface)
 main_interface.grid_manager = grid_manager
@@ -22,6 +21,7 @@ grid_manager.set_grid_pos(2, 1, Servants.get_servant("Mordred Pendragon"))
 grid_manager.set_grid_pos(6, 5, Servants.get_servant("Jeanne D'arc"))
 grid_manager.set_grid_pos(8, 10, Servants.get_servant("Illyasviel von Einzbern"))
 grid_manager.set_grid_pos(3, 10, Servants.get_servant("Mashu Kyrielight"))
+grid_manager.set_grid_pos(9, 10, Servants.get_servant("Chloe von Einzbern"))
 grid_manager.print_map()
 
 main_interface.start_mainloop()

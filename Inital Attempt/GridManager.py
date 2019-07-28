@@ -1,5 +1,4 @@
 import GlobalLibrary
-import GUI
 
 GlobalLibrary.initalise(__file__)
 
@@ -33,6 +32,5 @@ class Main:
         entity = self.grid[old_y][old_x]
         self.grid[old_y][old_x] = "#"
         self.grid[new_y][new_x] = entity
-        self.print_map()
         if is_entity:
             self.GUI.move_servant(entity, old_x, old_y, new_x, new_y)

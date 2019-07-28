@@ -1,10 +1,12 @@
-import pymongo
-import os
 import json
-import GlobalLibrary
+import os
 import sys
 
+import GlobalLibrary
+import pymongo
+
 GlobalLibrary.initalise(__file__)
+
 
 # FateGameClient bWcLUFH0J6nT6fQr
 class Main:
@@ -13,7 +15,8 @@ class Main:
         GlobalLibrary.initalise(Main.__name__)
         GlobalLibrary.notice("Connecting to Mongo Server!")
         try:
-            self.server_ref = pymongo.MongoClient("mongodb+srv://FateGameClient:bWcLUFH0J6nT6fQr@fategame-uhen9.mongodb.net/test?retryWrites=true&w=majority")
+            self.server_ref = pymongo.MongoClient(
+                "mongodb+srv://FateGameClient:bWcLUFH0J6nT6fQr@fategame-uhen9.mongodb.net/test?retryWrites=true&w=majority")
         except pymongo.errors.AutoReconnect:
             GlobalLibrary.error("Connection Failed, Reconnecting!")
         except pymongo.errors.ConnectionFailure:
@@ -47,11 +50,13 @@ class Main:
                         os.remove(file_path)  # Delete the old file
                         with open(file_path, 'w') as file_ref:  # Create a new file
                             json.dump(obj=database_document, fp=file_ref, ensure_ascii=False, indent=2)  # Write to file
+                        GlobalLibrary.debug("File Updated - " + file_path)
                 else:
+                    GlobalLibrary.debug("File Not Found - " + file_path)
                     database_document['_id'] = str(database_document['_id'])  # Converts the ID value to string
                     with open(file_path, 'w') as file_ref:  # Create a new file
                         json.dump(obj=database_document, fp=file_ref, ensure_ascii=False, indent=2)  # Write to file
-                    GlobalLibrary.debug("File Not Found - " + file_path)
+                    GlobalLibrary.debug("File Created - " + file_path)
             GlobalLibrary.notice("File Sync Complete!")
         except pymongo.errors.ServerSelectionTimeoutError:  # Error if connection times out
             GlobalLibrary.error("Connection Failed")

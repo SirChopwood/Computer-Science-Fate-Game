@@ -1,7 +1,8 @@
 import tkinter
-from PIL import Image, ImageTk
+
 import GlobalLibrary
 import Servants
+from PIL import Image, ImageTk
 
 GlobalLibrary.initalise(__file__)
 
@@ -98,24 +99,22 @@ class Main:
         GlobalLibrary.debug(click_selection['Name'] + " selected.")
         selected_servant = Servants.get_servant(click_selection['Name'])
         selected_servant_move = (selected_servant['Move'] * 2) + 1
-        selected_servant_move_start_x = self.grid_origin_x + (
-                (self.grid_clicked_x * self.grid_size) - ((selected_servant_move / 2 - 0.5) * self.grid_size))
-        selected_servant_move_start_y = self.grid_origin_y + (
-                (self.grid_clicked_y * self.grid_size) - ((selected_servant_move / 2 - 0.5) * self.grid_size))
+        selected_servant_move_start_x = ((self.grid_clicked_x * self.grid_size) - (selected_servant['Move'] * self.grid_size))
+        selected_servant_move_start_y = ((self.grid_clicked_y * self.grid_size) - (selected_servant['Move'] * self.grid_size))
         for row in range(selected_servant_move):
             for column in range(selected_servant_move):
-                print(int(selected_servant_move_start_x//self.grid_size/2), selected_servant_move_start_y//self.grid_size)
-                x = int(column+(selected_servant_move_start_x//self.grid_size/2))
-                y = int(row+(selected_servant_move_start_y//self.grid_size))
-                #print(x, y)
-                if self.grid_manager.get_grid_pos(x,y) == "#":
-                    x_start = selected_servant_move_start_x + (column * self.grid_size)
-                    y_start = selected_servant_move_start_y + (row * self.grid_size)
-                    x_end = selected_servant_move_start_x + ((column + 1) * self.grid_size)
-                    y_end = selected_servant_move_start_y + ((row + 1) * self.grid_size)
-                    selection_box = self.canvas.create_rectangle(x_start, y_start, x_end, y_end, fill="#88ff88",
-                                                                 tags="selection_box")
-                    self.selection_array.append(selection_box)
+                x = int(column + (selected_servant_move_start_x / self.grid_size))
+                y = int(row + (selected_servant_move_start_y / self.grid_size))
+                print(x,y,self.grid_manager.get_grid_pos(x, y))
+                if 0 <= x < (self.grid_amount-2) and 0 <= y < (self.grid_amount -2):
+                    if self.grid_manager.get_grid_pos(x, y) == "#":
+                        x_start = selected_servant_move_start_x + (column * self.grid_size) + self.grid_origin_x
+                        y_start = selected_servant_move_start_y + (row * self.grid_size) + self.grid_origin_y
+                        x_end = selected_servant_move_start_x + ((column + 1) * self.grid_size) + self.grid_origin_x
+                        y_end = selected_servant_move_start_y + ((row + 1) * self.grid_size) + self.grid_origin_y
+                        selection_box = self.canvas.create_rectangle(x_start, y_start, x_end, y_end, fill="#88ff88",
+                                                                     tags="selection_box")
+                        self.selection_array.append(selection_box)
         self.selected_servant = selected_servant
         self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_move_click)
         self.selection_array.append(
@@ -126,7 +125,6 @@ class Main:
     def servant_selected_move_click(self, event):
         selected_servant = self.selected_servant
         self.selected_servant = object
-        print(selected_servant)
         new_x = int((event.x - self.grid_origin_x) / self.grid_size)
         new_y = int((event.y - self.grid_origin_y) / self.grid_size)
         self.grid_manager.move_grid_pos(self.grid_clicked_x, self.grid_clicked_y, new_x, new_y, is_entity=True)
