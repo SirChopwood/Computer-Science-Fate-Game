@@ -11,7 +11,8 @@ def get_servant(name):
         file_json = json.load(file_ref)  # Load file into JSON module
         return file_json
 
-def get_player_servants(ip, servant_database):
+
+def get_player_servants(servant_database):
     player_servants = servant_database
     S_list = []
     for i in range(0,3):
@@ -27,6 +28,4 @@ def get_player_servants(ip, servant_database):
     S1 = S_list[0]
     S2 = S_list[1]
     S3 = S_list[2]
-    print(S1,S2,S3)
-
     return S1,S2,S3

@@ -12,9 +12,6 @@ class Main:
         self.CurrentTurnCounter = 1
         self.OverallTurnCounter = 1
         self.TurnCounterDict = {}
-        self.TurnCounterDict.update({1: self.player_stats.ServantSlotOne})
-        self.TurnCounterDict.update({2: self.player_stats.ServantSlotTwo})
-        self.TurnCounterDict.update({3: self.player_stats.ServantSlotThree})
 
     def next_turn(self):
         GlobalLibrary.notice(str("Turn: " + str(self.OverallTurnCounter)))
@@ -34,4 +31,12 @@ class Main:
             colour = "#8888ff"
         else:
             colour = "#ff8888"
-        self.GUI.new_turn_display(self.OverallTurnCounter, self.TurnCounterDict[self.CurrentTurnCounter], colour=colour)
+        next_servant_list = []
+        for i in range(0, 3):
+            try:
+                next_servant_list.append(self.TurnCounterDict[self.CurrentTurnCounter + i])
+            except KeyError:
+                print(self.TurnCounterDict[(self.CurrentTurnCounter + i) - len(self.TurnCounterDict)])
+                next_servant_list.append(self.TurnCounterDict[(self.CurrentTurnCounter + i) - len(self.TurnCounterDict)])
+        print(next_servant_list)
+        self.GUI.new_turn_display(self.OverallTurnCounter, next_servant_list, colour=colour)

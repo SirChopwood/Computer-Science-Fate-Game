@@ -80,12 +80,12 @@ class PlayerDatabase:
         self.database_player_inventory = self.collection_ref['playerinventory']  # Open the Database "playerinventory"
         self.database_player_servants = self.collection_ref['playerservants']  # Open the Database "playerservants"
 
-    def find_player_inventory(self, player_name):
-        search_query = {"IP": player_name}
+    def find_player_inventory(self, ip):
+        search_query = {"IP": ip}
         search_result = self.database_player_inventory.find_one(search_query)
         return search_result
 
-    def find_player_servants(self, player_name):
-        search_query = {"IP": player_name}
+    def find_player_servants(self, ip):
+        search_query = {"IP": ip}
         search_result = self.database_player_servants.find_one(search_query)
         return search_result

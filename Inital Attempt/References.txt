@@ -23,3 +23,6 @@ https://pynative.com/python-check-user-input-is-number-or-string/
 https://treyhunner.com/2018/04/keyword-arguments-in-python/
 https://www.tutorialspoint.com/python/python_functions.htm
 http://www.java2s.com/Code/Python/GUI-Tk/Bindmouseclickactiontotheobjectonacanvas.htm
+http://effbot.org/tkinterbook/canvas.htm
+https://www.programiz.com/python-programming/methods/dictionary/update
+https://www.codecademy.com/forum_questions/51fb851babf821be89002852

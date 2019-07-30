@@ -44,16 +44,27 @@ class Main:
         # Set Mouse Binds
         self.canvas.bind("<Button-1>", self.click)
 
-        self.turn_counter_text = (
-            self.canvas.create_text(self.monitor_resolution_x / 2, 50, text="DEBUG", fill="#ffffff",
-                                    font=("Coolvetica Rg", 20)))
+
 
         logo_image = Image.open("Pictures/Logo.png")
-        logo_image = logo_image.resize((int(self.monitor_resolution_x/10), int(self.monitor_resolution_y/10)), Image.ANTIALIAS)
+        logo_image = logo_image.resize((int(self.monitor_resolution_x / 10), int(self.monitor_resolution_y / 10)),
+                                       Image.ANTIALIAS)
         logo_image = ImageTk.PhotoImage(logo_image)
         self.logo_image = logo_image
         self.canvas.create_image(10, 0, image=logo_image, anchor="nw")
 
+        self.turn_counter_bg = self.canvas.create_rectangle(self.monitor_resolution_x - 120, 20,
+                                                            self.monitor_resolution_x, 300, fill="#555558")
+        self.turn_counter_text = (
+            self.canvas.create_text(self.monitor_resolution_x - 60, 50, text="DEBUG", fill="#ffffff",
+                                    font=("Coolvetica Rg", 20), anchor="c", justify="center"))
+        self.turn_counter_image = []
+        self.turn_counter_image.append(
+            self.canvas.create_image(self.monitor_resolution_x - 60, 100, image=logo_image, anchor="c"))
+        self.turn_counter_image.append(
+            self.canvas.create_image(self.monitor_resolution_x - 60, 170, image=logo_image, anchor="c"))
+        self.turn_counter_image.append(
+            self.canvas.create_image(self.monitor_resolution_x - 60, 240, image=logo_image, anchor="c"))
 
     def start_mainloop(self):
         self.window.mainloop()
@@ -89,12 +100,12 @@ class Main:
             self.image_ref_array.append({'Name': entity['Name'],
                                          'Image': self.canvas.create_image(new_pos_x, new_pos_y, image=new_image,
                                                                            anchor="nw"),
-                                         'File': entity['Icon']})  # Place image at absolute position
+                                         'File': entity['Icon'],
+                                         'ImageFile': new_image})  # Place image at absolute position
         else:
             self.image_ref_array.append(
                 {'Name': entity['Name'], 'Image': self.canvas.create_image(pos_x, pos_y, image=new_image, anchor="nw"),
-                 'File': entity['Icon']})  # Place image at absolute position
-        self.image_array.append(new_image)  # Store Image file in array to preserve
+                 'File': entity['Icon'], 'ImageFile': new_image})  # Place image at absolute position
 
     def click(self, event):
         self.grid_clicked_x = int((event.x - self.grid_origin_x) / self.grid_size)
@@ -173,6 +184,10 @@ class Main:
                 self.canvas.move(image_ref, move_x, move_y)
         self.turn_tracker.next_turn()
 
-    def new_turn_display(self, turn, entity_name, colour):
-        text = str("Turn " + str(turn) + " - " + str(entity_name))
+    def new_turn_display(self, turn, entity_names, colour):
+        for i in range(0, len(self.turn_counter_image)):
+            for image_ref in self.image_ref_array:
+                if image_ref['Name'] == entity_names[i]:
+                    self.canvas.itemconfigure(self.turn_counter_image[i], image=image_ref["ImageFile"])
+        text = str("TURN " + str(turn))
         self.canvas.itemconfigure(self.turn_counter_text, text=text, fill=colour)
