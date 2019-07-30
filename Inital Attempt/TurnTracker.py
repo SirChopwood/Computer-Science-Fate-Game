@@ -15,7 +15,6 @@ class Main:
         self.TurnCounterDict.update({1: self.player_stats.ServantSlotOne})
         self.TurnCounterDict.update({2: self.player_stats.ServantSlotTwo})
         self.TurnCounterDict.update({3: self.player_stats.ServantSlotThree})
-        self.TurnCounterDict.update({4: "Enemy Test"})
 
     def next_turn(self):
         GlobalLibrary.notice(str("Turn: " + str(self.OverallTurnCounter)))

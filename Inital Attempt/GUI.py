@@ -1,7 +1,6 @@
 import tkinter
 
 import GlobalLibrary
-import Servants
 from PIL import Image, ImageTk
 
 GlobalLibrary.initalise(__file__)
@@ -19,6 +18,8 @@ class Main:
         self.grid_amount = grid_amount  # Number of Boxes
         self.grid_size = grid_size  # Box Size
         self.grid_manager = None
+        self.grid_clicked_x = int
+        self.grid_clicked_y = int
         self.turn_tracker = turn_tracker
         self.player_stats = player_stats
         self.image_array = []
@@ -99,12 +100,12 @@ class Main:
         if click_selection != "#" and click_selection is not None:
             for image_ref in self.image_ref_array:
                 if image_ref['Name'] == click_selection['Name'] == self.turn_tracker.TurnCounterDict[
-                    self.turn_tracker.CurrentTurnCounter]:
+                        self.turn_tracker.CurrentTurnCounter]:
                     self.servant_selected_move(click_selection)
 
     def servant_selected_move(self, click_selection):
         GlobalLibrary.debug(click_selection['Name'] + " selected.")
-        selected_servant = Servants.get_servant(click_selection['Name'])
+        selected_servant = click_selection
         selected_servant_move = (selected_servant['Move'] * 2) + 1
         selected_servant_move_start_x = (
                 (self.grid_clicked_x * self.grid_size) - (selected_servant['Move'] * self.grid_size))
@@ -126,8 +127,24 @@ class Main:
         self.selected_servant = selected_servant
         self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_move_click)
         self.selection_array.append(
-            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 50,
+            self.canvas.create_rectangle((self.monitor_resolution_x / 2) - 250, self.monitor_resolution_y - 120,
+                                         (self.monitor_resolution_x / 2) + 250, self.monitor_resolution_y,
+                                         fill="#555558"))
+        self.selection_array.append(
+            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 100,
                                     text=selected_servant['Name'], fill="#ffffff",
+                                    font=("Coolvetica Rg", 14)))
+        self.selection_array.append(
+            self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 60,
+                                    text=str("HP " + str(selected_servant['HP'])), fill="#bbbbff",
+                                    font=("Coolvetica Rg", 20)))
+        self.selection_array.append(
+            self.canvas.create_text((self.monitor_resolution_x / 2), self.monitor_resolution_y - 60,
+                                    text=str("ATK " + str(selected_servant['ATK'])), fill="#ffbbbb",
+                                    font=("Coolvetica Rg", 20)))
+        self.selection_array.append(
+            self.canvas.create_text((self.monitor_resolution_x / 2) + 200, self.monitor_resolution_y - 60,
+                                    text=str("Move " + str(selected_servant['Move'])), fill="#bbffbb",
                                     font=("Coolvetica Rg", 20)))
 
     def servant_selected_move_click(self, event):
