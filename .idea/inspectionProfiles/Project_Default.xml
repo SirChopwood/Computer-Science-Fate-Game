@@ -11,6 +11,7 @@
           <option value="GUI" />
           <option value="PlayerStats" />
           <option value="TurnTracker" />
+          <option value="int.__mul__" />
         </list>
       </option>
     </inspection_tool>
