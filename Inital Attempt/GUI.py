@@ -134,12 +134,16 @@ class Main:
         self.selected_servant = selected_servant
         self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_move_click)
         self.selection_array.append(
-            self.canvas.create_rectangle((self.monitor_resolution_x / 2) - 250, self.monitor_resolution_y - 120,
+            self.canvas.create_rectangle((self.monitor_resolution_x / 2) - 250, self.monitor_resolution_y - 130,
                                          (self.monitor_resolution_x / 2) + 250, self.monitor_resolution_y,
                                          fill="#555558"))
         self.selection_array.append(
-            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 100,
+            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 110,
                                     text=selected_servant['Name'], fill="#ffffff",
+                                    font=("Coolvetica Rg", 20)))
+        self.selection_array.append(
+            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 85,
+                                    text=str("Level " + str(selected_servant['Level'])), fill="#dddddd",
                                     font=("Coolvetica Rg", 14)))
         self.selection_array.append(
             self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 60,
