@@ -48,6 +48,13 @@ class Main:
             self.canvas.create_text(self.monitor_resolution_x / 2, 50, text="DEBUG", fill="#ffffff",
                                     font=("Coolvetica Rg", 20)))
 
+        logo_image = Image.open("Pictures/Logo.png")
+        logo_image = logo_image.resize((int(self.monitor_resolution_x/10), int(self.monitor_resolution_y/10)), Image.ANTIALIAS)
+        logo_image = ImageTk.PhotoImage(logo_image)
+        self.logo_image = logo_image
+        self.canvas.create_image(10, 0, image=logo_image, anchor="nw")
+
+
     def start_mainloop(self):
         self.window.mainloop()
 

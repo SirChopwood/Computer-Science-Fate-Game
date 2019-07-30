@@ -8,15 +8,15 @@ import pymongo
 GlobalLibrary.initalise(__file__)
 
 
-# FateGameClient bWcLUFH0J6nT6fQr
-class Main:
+class ServantDatabase:
 
     def __init__(self):
-        GlobalLibrary.initalise(Main.__name__)
+        GlobalLibrary.initalise(ServantDatabase.__name__)
         GlobalLibrary.notice("Connecting to Mongo Server!")
         try:
             self.server_ref = pymongo.MongoClient(
-                "mongodb+srv://FateGameClient:bWcLUFH0J6nT6fQr@fategame-uhen9.mongodb.net/test?retryWrites=true&w=majority")
+                "mongodb+srv://FateGameClient:bWcLUFH0J6nT6fQr@fategame-uhen9.mongodb.net/test?retryWrites=true&w"
+                "=majority")
         except pymongo.errors.AutoReconnect:
             GlobalLibrary.error("Connection Failed, Reconnecting!")
         except pymongo.errors.ConnectionFailure:
@@ -61,3 +61,31 @@ class Main:
         except pymongo.errors.ServerSelectionTimeoutError:  # Error if connection times out
             GlobalLibrary.error("Connection Failed")
             sys.exit()
+
+
+class PlayerDatabase:
+
+    def __init__(self):
+        GlobalLibrary.initalise(PlayerDatabase.__name__)
+        GlobalLibrary.notice("Connecting to Mongo Server!")
+        try:
+            self.server_ref = pymongo.MongoClient(
+                "mongodb+srv://FateGameClient:bWcLUFH0J6nT6fQr@fategame-uhen9.mongodb.net/test?retryWrites=true&w"
+                "=majority")
+        except pymongo.errors.AutoReconnect:
+            GlobalLibrary.error("Connection Failed, Reconnecting!")
+        except pymongo.errors.ConnectionFailure:
+            GlobalLibrary.error("Connection Failed!")
+        self.collection_ref = self.server_ref['playerdata']  # Open the Collection "playerdata"
+        self.database_player_inventory = self.collection_ref['playerinventory']  # Open the Database "playerinventory"
+        self.database_player_servants = self.collection_ref['playerservants']  # Open the Database "playerservants"
+
+    def find_player_inventory(self, player_name):
+        search_query = {"IP": player_name}
+        search_result = self.database_player_inventory.find_one(search_query)
+        return search_result
+
+    def find_player_servants(self, player_name):
+        search_query = {"IP": player_name}
+        search_result = self.database_player_servants.find_one(search_query)
+        return search_result
