@@ -9,6 +9,8 @@ def get_servant(name):
     file_path = str("Servants/" + name + ".json")
     with open(file_path, 'r', encoding="utf8") as file_ref:
         file_json = json.load(file_ref)  # Load file into JSON module
+        file_json.update({"Level": 1})
+        file_json.update({"Allied": False})
         return file_json
 
 
@@ -24,6 +26,7 @@ def get_player_servants(servant_database):
             json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (S_level / 30)))
             json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (S_level / 30)))
             json_ref.update({"Level": S_level})
+            json_ref.update({"Allied": True})
             S_list.append(json_ref)
     S1 = S_list[0]
     S2 = S_list[1]

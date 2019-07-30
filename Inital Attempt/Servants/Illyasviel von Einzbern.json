@@ -4,6 +4,7 @@
   "HP": 2027,
   "ATK": 1677,
   "Move": 2,
+  "Range": 5,
   "Name": "Illyasviel von Einzbern",
   "NP": "Quintett Feuer",
   "NPClass": "Anti-Unit"

@@ -36,7 +36,5 @@ class Main:
             try:
                 next_servant_list.append(self.TurnCounterDict[self.CurrentTurnCounter + i])
             except KeyError:
-                print(self.TurnCounterDict[(self.CurrentTurnCounter + i) - len(self.TurnCounterDict)])
                 next_servant_list.append(self.TurnCounterDict[(self.CurrentTurnCounter + i) - len(self.TurnCounterDict)])
-        print(next_servant_list)
         self.GUI.new_turn_display(self.OverallTurnCounter, next_servant_list, colour=colour)
