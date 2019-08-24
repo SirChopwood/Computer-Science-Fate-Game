@@ -32,3 +32,4 @@ def get_player_servants(servant_database):
     S2 = S_list[1]
     S3 = S_list[2]
     return S1,S2,S3
+

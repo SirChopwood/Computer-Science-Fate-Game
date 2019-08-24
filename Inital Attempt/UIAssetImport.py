@@ -26,3 +26,39 @@ class Main:
         ui_attack_icon = ui_attack_icon.resize((grid_size, grid_size), Image.ANTIALIAS)
         ui_attack_icon = ImageTk.PhotoImage(ui_attack_icon)
         GUI.ui_attack_icon = ui_attack_icon
+
+        ui_class_saber = Image.open("Pictures/Classes/Saber.png")
+        ui_class_saber = ImageTk.PhotoImage(ui_class_saber)
+        GUI.ui_class_saber = ui_class_saber
+
+        ui_class_archer = Image.open("Pictures/Classes/Archer.png")
+        ui_class_archer = ImageTk.PhotoImage(ui_class_archer)
+        GUI.ui_class_archer = ui_class_archer
+
+        ui_class_lancer = Image.open("Pictures/Classes/Lancer.png")
+        ui_class_lancer = ImageTk.PhotoImage(ui_class_lancer)
+        GUI.ui_class_lancer = ui_class_lancer
+
+        ui_class_caster = Image.open("Pictures/Classes/Caster.png")
+        ui_class_caster = ImageTk.PhotoImage(ui_class_caster)
+        GUI.ui_class_caster = ui_class_caster
+
+        ui_class_rider = Image.open("Pictures/Classes/Rider.png")
+        ui_class_rider = ImageTk.PhotoImage(ui_class_rider)
+        GUI.ui_class_rider = ui_class_rider
+
+        ui_class_assassin = Image.open("Pictures/Classes/Assassin.png")
+        ui_class_assassin = ImageTk.PhotoImage(ui_class_assassin)
+        GUI.ui_class_assassin = ui_class_assassin
+
+        ui_class_ruler = Image.open("Pictures/Classes/Ruler.png")
+        ui_class_ruler = ImageTk.PhotoImage(ui_class_ruler)
+        GUI.ui_class_ruler = ui_class_ruler
+
+        ui_class_shielder = Image.open("Pictures/Classes/Shielder.png")
+        ui_class_shielder = ImageTk.PhotoImage(ui_class_shielder)
+        GUI.ui_class_ruler = ui_class_shielder
+
+        ui_class_berserker = Image.open("Pictures/Classes/Berserker.png")
+        ui_class_berserker = ImageTk.PhotoImage(ui_class_berserker)
+        GUI.ui_class_ruler = ui_class_berserker

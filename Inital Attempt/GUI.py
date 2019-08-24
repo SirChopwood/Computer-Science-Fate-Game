@@ -1,5 +1,6 @@
 import tkinter
 
+import Servants
 import UIAssetImport
 import GlobalLibrary
 from PIL import Image, ImageTk
@@ -236,6 +237,31 @@ class Main:
         self.selection_array.append(
             self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y - 24,
                                      image=self.ui_servant_select_stats_bg, anchor="s"))
+        try:
+            if self.selected_servant['Class'] == "Saber":
+                servant_class = self.ui_class_saber
+            elif self.selected_servant['Class'] == "Archer":
+                servant_class = self.ui_class_archer
+            elif self.selected_servant['Class'] == "Lancer":
+                servant_class = self.ui_class_lancer
+            elif self.selected_servant['Class'] == "Caster":
+                servant_class = self.ui_class_caster
+            elif self.selected_servant['Class'] == "Rider":
+                servant_class = self.ui_class_rider
+            elif self.selected_servant['Class'] == "Assassin":
+                servant_class = self.ui_class_assassin
+            elif self.selected_servant['Class'] == "Ruler":
+                servant_class = self.ui_class_ruler
+            elif self.selected_servant['Class'] == "Shielder":
+                servant_class = self.ui_class_shielder
+            elif self.selected_servant['Class'] == "Berserker":
+                servant_class = self.ui_class_berserker
+        except KeyError:
+                print("REMEMBER TO ADD CLASSES TO SERVANTS")
+
+        self.selection_array.append(
+            self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y - 82,
+                                     image=servant_class, anchor="c"))
         self.selection_array.append(
             self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 115,
                                     text=self.selected_servant['Name'], fill="#BF9A06",
