@@ -1,37 +1,49 @@
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\GlobalLibrary.py
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\GUI.py
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\GridManager.py
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Mongo.py
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Servants.py
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\TurnTracker.py
-[2019/07/31 00:50:35] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\PlayerStats.py
-[2019/07/31 00:50:35] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
-[2019/07/31 00:50:35] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
-[2019/07/31 00:50:35] [INIT]    Main
-[2019/07/31 00:50:35] [INIT]    Main
-[2019/07/31 00:50:35] [INIT]    ServantDatabase
-[2019/07/31 00:50:35] [NOTICE]  Connecting to Mongo Server!
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Mordred Pendragon.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Jeanne D'arc.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Merlin.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Merlin.json
-[2019/07/31 00:50:36] [DEBUG]   File Found - Servants/Astolfo.json
-[2019/07/31 00:50:36] [DEBUG]   File Matched - Servants/Astolfo.json
-[2019/07/31 00:50:36] [NOTICE]  File Sync Complete!
-[2019/07/31 00:50:36] [INIT]    PlayerDatabase
-[2019/07/31 00:50:36] [NOTICE]  Connecting to Mongo Server!
-[2019/07/31 00:50:37] [DEBUG]   Illyasviel von Einzbern selected (Move).
-[2019/07/31 00:50:38] [DEBUG]   Illyasviel von Einzbern selected (Attack)
-[2019/07/31 00:50:45] [NOTICE]  Turn: 1
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\GlobalLibrary.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\UIAssetImport.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\GUI.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\GridManager.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Mongo.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Servants.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\TurnTracker.py
+[2019/08/24 02:13:08] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\PlayerStats.py
+[2019/08/24 02:13:08] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
+[2019/08/24 02:13:08] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
+[2019/08/24 02:13:08] [INIT]    Main
+[2019/08/24 02:13:08] [INIT]    Main
+[2019/08/24 02:13:08] [INIT]    Main
+[2019/08/24 02:13:08] [INIT]    ServantDatabase
+[2019/08/24 02:13:08] [NOTICE]  Connecting to Mongo Server!
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Mordred Pendragon.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Jeanne D'arc.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Merlin.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Merlin.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Astolfo.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Astolfo.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
+[2019/08/24 02:13:08] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
+[2019/08/24 02:13:08] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
+[2019/08/24 02:13:08] [NOTICE]  File Sync Complete!
+[2019/08/24 02:13:08] [INIT]    PlayerDatabase
+[2019/08/24 02:13:08] [NOTICE]  Connecting to Mongo Server!
+[2019/08/24 02:13:10] [DEBUG]   Illyasviel von Einzbern selected.
+[2019/08/24 02:13:33] [NOTICE]  Turn: 1
+[2019/08/24 02:13:47] [DEBUG]   Astolfo selected.
+[2019/08/24 02:13:48] [NOTICE]  Turn: 1
+[2019/08/24 02:13:49] [DEBUG]   Mordred Pendragon selected.
+[2019/08/24 02:13:51] [NOTICE]  Turn: 1
+[2019/08/24 02:13:51] [DEBUG]   Illyasviel von Einzbern selected.
+[2019/08/24 02:13:52] [NOTICE]  Turn: 2
+[2019/08/24 02:14:01] [DEBUG]   Astolfo selected.
+[2019/08/24 02:14:02] [NOTICE]  Turn: 2
+[2019/08/24 02:14:02] [DEBUG]   Mordred Pendragon selected.
+[2019/08/24 02:14:03] [NOTICE]  Turn: 2
+[2019/08/24 02:14:03] [DEBUG]   Illyasviel von Einzbern selected.

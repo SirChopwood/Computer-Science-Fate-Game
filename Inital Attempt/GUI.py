@@ -1,5 +1,6 @@
 import tkinter
 
+import UIAssetImport
 import GlobalLibrary
 from PIL import Image, ImageTk
 
@@ -10,6 +11,8 @@ class Main:
 
     def __init__(self, grid_amount, grid_size, turn_tracker, player_stats):
         window = tkinter.Tk()
+        if not hasattr(self, 'canvas'):
+            UIAssetImport.Main(self, grid_size)
         self.window = window
         window.attributes("-fullscreen", True)
         # Set Window
@@ -52,18 +55,22 @@ class Main:
         self.logo_image = logo_image
         self.canvas.create_image(10, 0, image=logo_image, anchor="nw")
 
-        self.turn_counter_bg = self.canvas.create_rectangle(self.monitor_resolution_x - 120, 20,
-                                                            self.monitor_resolution_x, 300, fill="#555558")
+        self.turn_counter_bg = self.canvas.create_image(self.monitor_resolution_x, self.monitor_resolution_y - 24,
+                                                        image=self.ui_turn_order_bg, anchor="se")
         self.turn_counter_text = (
-            self.canvas.create_text(self.monitor_resolution_x - 60, 50, text="DEBUG", fill="#ffffff",
+            self.canvas.create_text(self.monitor_resolution_x - 65, self.monitor_resolution_y - 112, text="DEBUG",
+                                    fill="#ffffff",
                                     font=("Coolvetica Rg", 20), anchor="c", justify="center"))
         self.turn_counter_image = []
         self.turn_counter_image.append(
-            self.canvas.create_image(self.monitor_resolution_x - 60, 100, image=logo_image, anchor="c"))
+            self.canvas.create_image(self.monitor_resolution_x - 275, self.monitor_resolution_y - 55, image=logo_image,
+                                     anchor="c"))
         self.turn_counter_image.append(
-            self.canvas.create_image(self.monitor_resolution_x - 60, 170, image=logo_image, anchor="c"))
+            self.canvas.create_image(self.monitor_resolution_x - 175, self.monitor_resolution_y - 55, image=logo_image,
+                                     anchor="c"))
         self.turn_counter_image.append(
-            self.canvas.create_image(self.monitor_resolution_x - 60, 240, image=logo_image, anchor="c"))
+            self.canvas.create_image(self.monitor_resolution_x - 75, self.monitor_resolution_y - 55, image=logo_image,
+                                     anchor="c"))
 
     def start_mainloop(self):
         self.window.mainloop()
@@ -118,10 +125,15 @@ class Main:
             for image_ref in self.image_ref_array:
                 if image_ref['Name'] == click_selection['Name'] == self.turn_tracker.TurnCounterDict[
                 self.turn_tracker.CurrentTurnCounter]:
-                    if self.servant_has_moved:
-                        self.servant_selected_attack(click_selection)
-                    else:
-                        self.servant_selected_move(click_selection)
+                    self.servant_selected_both(click_selection)
+#                    if self.servant_has_moved:
+#                        self.servant_selected_attack(click_selection)
+#                    elif self.servant_has_attacked:
+#                        self.servant_selected_move(click_selection)
+                elif image_ref['Name'] == click_selection['Name'] != self.turn_tracker.TurnCounterDict[
+                self.turn_tracker.CurrentTurnCounter]:
+                    self.selected_servant = click_selection
+                    self.display_servant_stats()
 
     def servant_selected_move(self, click_selection):
         GlobalLibrary.debug(click_selection['Name'] + " selected (Move).")
@@ -160,45 +172,99 @@ class Main:
                 x = int(column + (selected_servant_attack_start_x / self.grid_size))
                 y = int(row + (selected_servant_attack_start_y / self.grid_size))
                 if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
-                    print(self.selected_servant["Allied"])
                     grid_pos_ref = self.grid_manager.get_grid_pos(x, y)
                     if grid_pos_ref != "#":
                         if grid_pos_ref["Allied"] is False:
-                            print("Test")
-                            x_start = (selected_servant_attack_start_x + (column * self.grid_size) + self.grid_origin_x) + 5
-                            y_start = (selected_servant_attack_start_y + (row * self.grid_size) + self.grid_origin_y) + 5
-                            x_end = (selected_servant_attack_start_x + ((column + 1) * self.grid_size) + self.grid_origin_x) - 5
-                            y_end = (selected_servant_attack_start_y + ((row + 1) * self.grid_size) + self.grid_origin_y) - 5
+                            x_start = (selected_servant_attack_start_x + (
+                                    column * self.grid_size) + self.grid_origin_x) + 5
+                            y_start = (selected_servant_attack_start_y + (
+                                    row * self.grid_size) + self.grid_origin_y) + 5
+                            x_end = (selected_servant_attack_start_x + (
+                                    (column + 1) * self.grid_size) + self.grid_origin_x) - 5
+                            y_end = (selected_servant_attack_start_y + (
+                                    (row + 1) * self.grid_size) + self.grid_origin_y) - 5
                             selection_box = self.canvas.create_rectangle(x_start, y_start, x_end, y_end, fill="#ff8888",
                                                                          tags="selection_box")
                             self.selection_array.append(selection_box)
         self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_attack_click)
         self.display_servant_stats()
 
+    def servant_selected_both(self, click_selection):
+        GlobalLibrary.debug(click_selection['Name'] + " selected.")
+        self.selected_servant = click_selection
+        selected_servant_move = (self.selected_servant['Move'] * 2) + 1
+        selected_servant_move_start_x = (
+                (self.grid_clicked_x * self.grid_size) - (self.selected_servant['Move'] * self.grid_size))
+        selected_servant_move_start_y = (
+                (self.grid_clicked_y * self.grid_size) - (self.selected_servant['Move'] * self.grid_size))
+        for row in range(selected_servant_move):
+            for column in range(selected_servant_move):
+                x = int(column + (selected_servant_move_start_x / self.grid_size))
+                y = int(row + (selected_servant_move_start_y / self.grid_size))
+                if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
+                    if self.grid_manager.get_grid_pos(x, y) == "#":
+                        x_start = selected_servant_move_start_x + (column * self.grid_size) + self.grid_origin_x
+                        y_start = selected_servant_move_start_y + (row * self.grid_size) + self.grid_origin_y
+                        selection_box = self.canvas.create_image(x_start, y_start, image=self.ui_move_icon,
+                                     anchor="nw", tags="move_selection_box")
+                        self.selection_array.append(selection_box)
+        self.canvas.tag_bind("move_selection_box", "<Button-1>", self.servant_selected_move_click)
+        selected_servant_attack = (self.selected_servant['Range'] * 2) + 1
+        selected_servant_attack_start_x = (
+                (self.grid_clicked_x * self.grid_size) - (self.selected_servant['Range'] * self.grid_size))
+        selected_servant_attack_start_y = (
+                (self.grid_clicked_y * self.grid_size) - (self.selected_servant['Range'] * self.grid_size))
+        for row in range(selected_servant_attack):
+            for column in range(selected_servant_attack):
+                x = int(column + (selected_servant_attack_start_x / self.grid_size))
+                y = int(row + (selected_servant_attack_start_y / self.grid_size))
+                if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
+                    grid_pos_ref = self.grid_manager.get_grid_pos(x, y)
+                    if grid_pos_ref != "#":
+                        if grid_pos_ref["Allied"] is False:
+                            x_start = (selected_servant_attack_start_x + (
+                                    column * self.grid_size) + self.grid_origin_x)
+                            y_start = (selected_servant_attack_start_y + (
+                                    row * self.grid_size) + self.grid_origin_y)
+                            selection_box = self.canvas.create_image(x_start, y_start, image=self.ui_attack_icon,
+                                                                     anchor="nw", tags="move_selection_box")
+                            self.selection_array.append(selection_box)
+        self.canvas.tag_bind("attack_selection_box", "<Button-1>", self.servant_selected_attack_click)
+        self.display_servant_stats()
+
     def display_servant_stats(self):
         self.selection_array.append(
-            self.canvas.create_rectangle((self.monitor_resolution_x / 2) - 250, self.monitor_resolution_y - 130,
-                                         (self.monitor_resolution_x / 2) + 250, self.monitor_resolution_y,
-                                         fill="#555558"))
+            self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y - 24,
+                                     image=self.ui_servant_select_stats_bg, anchor="s"))
         self.selection_array.append(
-            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 110,
-                                    text=self.selected_servant['Name'], fill="#ffffff",
+            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 115,
+                                    text=self.selected_servant['Name'], fill="#BF9A06",
                                     font=("Coolvetica Rg", 20)))
-        self.selection_array.append(
-            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 85,
-                                    text=str("Level " + str(self.selected_servant['Level'])), fill="#dddddd",
+        try:
+            self.selection_array.append(
+                self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 85,
+                                    text=str(
+                                        "Level " + str(self.selected_servant['Level']) + " " + self.selected_servant[
+                                            'Title']), fill="#999999",
                                     font=("Coolvetica Rg", 14)))
+        except KeyError:
+            print("REMEMBER TO ADD TITLES TO SERVANTS")
+            self.selection_array.append(
+                self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 85,
+                                        text=str(
+                                            "Level " + str(self.selected_servant['Level']) + " Servant"), fill="#999999",
+                                        font=("Coolvetica Rg", 14)))
         self.selection_array.append(
-            self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 60,
-                                    text=str("HP " + str(self.selected_servant['HP'])), fill="#bbbbff",
+            self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 55,
+                                    text=str("HP " + str(self.selected_servant['HP'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
         self.selection_array.append(
-            self.canvas.create_text((self.monitor_resolution_x / 2), self.monitor_resolution_y - 60,
-                                    text=str("ATK " + str(self.selected_servant['ATK'])), fill="#ffbbbb",
+            self.canvas.create_text((self.monitor_resolution_x / 2), self.monitor_resolution_y - 55,
+                                    text=str("ATK " + str(self.selected_servant['ATK'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
         self.selection_array.append(
-            self.canvas.create_text((self.monitor_resolution_x / 2) + 200, self.monitor_resolution_y - 60,
-                                    text=str("Move " + str(self.selected_servant['Move'])), fill="#bbffbb",
+            self.canvas.create_text((self.monitor_resolution_x / 2) + 200, self.monitor_resolution_y - 55,
+                                    text=str("Move " + str(self.selected_servant['Move'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
 
     def servant_selected_move_click(self, event):
@@ -207,6 +273,8 @@ class Main:
         new_x = int((event.x - self.grid_origin_x) / self.grid_size)
         new_y = int((event.y - self.grid_origin_y) / self.grid_size)
         self.grid_manager.move_grid_pos(self.grid_clicked_x, self.grid_clicked_y, new_x, new_y, is_entity=True)
+        self.turn_tracker.next_turn()
+
 
     def servant_selected_attack_click(self, event):
         self.selected_servant = object

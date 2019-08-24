@@ -24,13 +24,13 @@ class Main:
 
     def display_current_turn(self):
         if self.TurnCounterDict[self.CurrentTurnCounter] == self.player_stats.ServantSlotOne:
-            colour = "#8888ff"
+            colour = "#bbbbbb"
         elif self.TurnCounterDict[self.CurrentTurnCounter] == self.player_stats.ServantSlotTwo:
-            colour = "#8888ff"
+            colour = "#bbbbbb"
         elif self.TurnCounterDict[self.CurrentTurnCounter] == self.player_stats.ServantSlotThree:
-            colour = "#8888ff"
+            colour = "#bbbbbb"
         else:
-            colour = "#ff8888"
+            colour = "#777777"
         next_servant_list = []
         for i in range(0, 3):
             try:
