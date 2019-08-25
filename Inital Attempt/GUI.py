@@ -73,6 +73,7 @@ class Main:
             self.canvas.create_image(self.monitor_resolution_x - 75, self.monitor_resolution_y - 55, image=logo_image,
                                      anchor="c"))
 
+
     def start_mainloop(self):
         self.window.mainloop()
 
@@ -136,60 +137,6 @@ class Main:
                     self.selected_servant = click_selection
                     self.display_servant_stats()
 
-    def servant_selected_move(self, click_selection):
-        GlobalLibrary.debug(click_selection['Name'] + " selected (Move).")
-        self.selected_servant = click_selection
-        selected_servant_move = (self.selected_servant['Move'] * 2) + 1
-        selected_servant_move_start_x = (
-                (self.grid_clicked_x * self.grid_size) - (self.selected_servant['Move'] * self.grid_size))
-        selected_servant_move_start_y = (
-                (self.grid_clicked_y * self.grid_size) - (self.selected_servant['Move'] * self.grid_size))
-        for row in range(selected_servant_move):
-            for column in range(selected_servant_move):
-                x = int(column + (selected_servant_move_start_x / self.grid_size))
-                y = int(row + (selected_servant_move_start_y / self.grid_size))
-                if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
-                    if self.grid_manager.get_grid_pos(x, y) == "#":
-                        x_start = selected_servant_move_start_x + (column * self.grid_size) + self.grid_origin_x
-                        y_start = selected_servant_move_start_y + (row * self.grid_size) + self.grid_origin_y
-                        x_end = selected_servant_move_start_x + ((column + 1) * self.grid_size) + self.grid_origin_x
-                        y_end = selected_servant_move_start_y + ((row + 1) * self.grid_size) + self.grid_origin_y
-                        selection_box = self.canvas.create_rectangle(x_start, y_start, x_end, y_end, fill="#88ff88",
-                                                                     tags="selection_box")
-                        self.selection_array.append(selection_box)
-        self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_move_click)
-        self.display_servant_stats()
-
-    def servant_selected_attack(self, click_selection):
-        GlobalLibrary.debug(click_selection['Name'] + " selected (Attack)")
-        self.selected_servant = click_selection
-        selected_servant_attack = (self.selected_servant['Range'] * 2) + 1
-        selected_servant_attack_start_x = (
-                (self.grid_clicked_x * self.grid_size) - (self.selected_servant['Range'] * self.grid_size))
-        selected_servant_attack_start_y = (
-                (self.grid_clicked_y * self.grid_size) - (self.selected_servant['Range'] * self.grid_size))
-        for row in range(selected_servant_attack):
-            for column in range(selected_servant_attack):
-                x = int(column + (selected_servant_attack_start_x / self.grid_size))
-                y = int(row + (selected_servant_attack_start_y / self.grid_size))
-                if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
-                    grid_pos_ref = self.grid_manager.get_grid_pos(x, y)
-                    if grid_pos_ref != "#":
-                        if grid_pos_ref["Allied"] is False:
-                            x_start = (selected_servant_attack_start_x + (
-                                    column * self.grid_size) + self.grid_origin_x) + 5
-                            y_start = (selected_servant_attack_start_y + (
-                                    row * self.grid_size) + self.grid_origin_y) + 5
-                            x_end = (selected_servant_attack_start_x + (
-                                    (column + 1) * self.grid_size) + self.grid_origin_x) - 5
-                            y_end = (selected_servant_attack_start_y + (
-                                    (row + 1) * self.grid_size) + self.grid_origin_y) - 5
-                            selection_box = self.canvas.create_rectangle(x_start, y_start, x_end, y_end, fill="#ff8888",
-                                                                         tags="selection_box")
-                            self.selection_array.append(selection_box)
-        self.canvas.tag_bind("selection_box", "<Button-1>", self.servant_selected_attack_click)
-        self.display_servant_stats()
-
     def servant_selected_both(self, click_selection):
         GlobalLibrary.debug(click_selection['Name'] + " selected.")
         self.selected_servant = click_selection
@@ -221,14 +168,14 @@ class Main:
                 y = int(row + (selected_servant_attack_start_y / self.grid_size))
                 if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
                     grid_pos_ref = self.grid_manager.get_grid_pos(x, y)
-                    if grid_pos_ref != "#":
-                        if grid_pos_ref["Allied"] is False:
+                    if not isinstance(grid_pos_ref, str):
+                        if grid_pos_ref['Allied'] is False:
                             x_start = (selected_servant_attack_start_x + (
                                     column * self.grid_size) + self.grid_origin_x)
                             y_start = (selected_servant_attack_start_y + (
                                     row * self.grid_size) + self.grid_origin_y)
                             selection_box = self.canvas.create_image(x_start, y_start, image=self.ui_attack_icon,
-                                                                     anchor="nw", tags="move_selection_box")
+                                                                     anchor="nw", tags="attack_selection_box")
                             self.selection_array.append(selection_box)
         self.canvas.tag_bind("attack_selection_box", "<Button-1>", self.servant_selected_attack_click)
         self.display_servant_stats()

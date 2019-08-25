@@ -1,5 +1,5 @@
-from PIL import Image, ImageTk
 import GlobalLibrary
+from PIL import Image, ImageTk
 
 GlobalLibrary.initalise(__file__)
 
@@ -9,56 +9,70 @@ class Main:
     def __init__(self, GUI, grid_size):
         GlobalLibrary.initalise(Main.__name__)
 
-        ui_servant_select_stats_bg = Image.open("Pictures/UI/ServantSelectStats.png")
-        ui_servant_select_stats_bg = ImageTk.PhotoImage(ui_servant_select_stats_bg)
-        GUI.ui_servant_select_stats_bg = ui_servant_select_stats_bg
+        # INTERFACE ASSETS
+        GUI.ui_servant_select_stats_bg = self.import_image("Pictures/UI/ServantSelectStats.png")
+        GUI.ui_turn_order_bg = self.import_image("Pictures/UI/TurnOrder.png")
+        GUI.ui_move_icon = self.import_image_resize("Pictures/UI/MoveIcon.png", grid_size, grid_size)
+        GUI.ui_attack_icon = self.import_image_resize("Pictures/UI/AttackIcon.png", grid_size, grid_size)
 
-        ui_turn_order_bg = Image.open("Pictures/UI/TurnOrder.png")
-        ui_turn_order_bg = ImageTk.PhotoImage(ui_turn_order_bg)
-        GUI.ui_turn_order_bg = ui_turn_order_bg
+        # CLASS LOGOS
+        GUI.ui_class_saber = self.import_image("Pictures/Classes/Saber.png")
+        GUI.ui_class_archer = self.import_image("Pictures/Classes/Archer.png")
+        GUI.ui_class_lancer = self.import_image("Pictures/Classes/Lancer.png")
+        GUI.ui_class_caster = self.import_image("Pictures/Classes/Caster.png")
+        GUI.ui_class_rider = self.import_image("Pictures/Classes/Rider.png")
+        GUI.ui_class_assassin = self.import_image("Pictures/Classes/Assassin.png")
+        GUI.ui_class_ruler = self.import_image("Pictures/Classes/Ruler.png")
+        GUI.ui_class_shielder = self.import_image("Pictures/Classes/Shielder.png")
+        GUI.ui_class_berserker = self.import_image("Pictures/Classes/Berserker.png")
 
-        ui_move_icon = Image.open("Pictures/UI/MoveIcon.png")
-        ui_move_icon = ui_move_icon.resize((grid_size, grid_size), Image.ANTIALIAS)
-        ui_move_icon = ImageTk.PhotoImage(ui_move_icon)
-        GUI.ui_move_icon = ui_move_icon
+        # TERRAIN TILES
+        GUI.ui_tiles_chaldea = {}
+        GUI.ui_tiles_chaldea.update(
+            {"Single": self.import_image_resize("Pictures/Terrain/Chaldea/Single.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"X": self.import_image_resize("Pictures/Terrain/Chaldea/X.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Straight_H": self.import_image_resize("Pictures/Terrain/Chaldea/Straight_H.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Straight_V": self.import_image_resize("Pictures/Terrain/Chaldea/Straight_V.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Floor": self.import_image_resize("Pictures/Terrain/Chaldea/Floor.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Corner_BR": self.import_image_resize("Pictures/Terrain/Chaldea/Corner_BR.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Corner_BL": self.import_image_resize("Pictures/Terrain/Chaldea/Corner_BL.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Corner_TR": self.import_image_resize("Pictures/Terrain/Chaldea/Corner_TR.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"Corner_TL": self.import_image_resize("Pictures/Terrain/Chaldea/Corner_TL.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"T_RBL": self.import_image_resize("Pictures/Terrain/Chaldea/T_RBL.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"T_RTL": self.import_image_resize("Pictures/Terrain/Chaldea/T_RTL.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"T_TLB": self.import_image_resize("Pictures/Terrain/Chaldea/T_TLB.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"T_TRB": self.import_image_resize("Pictures/Terrain/Chaldea/T_TRB.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"End_T": self.import_image_resize("Pictures/Terrain/Chaldea/End_T.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"End_B": self.import_image_resize("Pictures/Terrain/Chaldea/End_B.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"End_L": self.import_image_resize("Pictures/Terrain/Chaldea/End_L.png", grid_size, grid_size)})
+        GUI.ui_tiles_chaldea.update(
+            {"End_R": self.import_image_resize("Pictures/Terrain/Chaldea/End_R.png", grid_size, grid_size)})
 
-        ui_attack_icon = Image.open("Pictures/UI/AttackIcon.png")
-        ui_attack_icon = ui_attack_icon.resize((grid_size, grid_size), Image.ANTIALIAS)
-        ui_attack_icon = ImageTk.PhotoImage(ui_attack_icon)
-        GUI.ui_attack_icon = ui_attack_icon
+        print(GUI.ui_tiles_chaldea)
+        print(GUI.ui_tiles_chaldea['Straight_H'])
 
-        ui_class_saber = Image.open("Pictures/Classes/Saber.png")
-        ui_class_saber = ImageTk.PhotoImage(ui_class_saber)
-        GUI.ui_class_saber = ui_class_saber
+    def import_image(self, file_path):
+        image_reference = Image.open(file_path)
+        image_reference = ImageTk.PhotoImage(image_reference)
+        return image_reference
 
-        ui_class_archer = Image.open("Pictures/Classes/Archer.png")
-        ui_class_archer = ImageTk.PhotoImage(ui_class_archer)
-        GUI.ui_class_archer = ui_class_archer
-
-        ui_class_lancer = Image.open("Pictures/Classes/Lancer.png")
-        ui_class_lancer = ImageTk.PhotoImage(ui_class_lancer)
-        GUI.ui_class_lancer = ui_class_lancer
-
-        ui_class_caster = Image.open("Pictures/Classes/Caster.png")
-        ui_class_caster = ImageTk.PhotoImage(ui_class_caster)
-        GUI.ui_class_caster = ui_class_caster
-
-        ui_class_rider = Image.open("Pictures/Classes/Rider.png")
-        ui_class_rider = ImageTk.PhotoImage(ui_class_rider)
-        GUI.ui_class_rider = ui_class_rider
-
-        ui_class_assassin = Image.open("Pictures/Classes/Assassin.png")
-        ui_class_assassin = ImageTk.PhotoImage(ui_class_assassin)
-        GUI.ui_class_assassin = ui_class_assassin
-
-        ui_class_ruler = Image.open("Pictures/Classes/Ruler.png")
-        ui_class_ruler = ImageTk.PhotoImage(ui_class_ruler)
-        GUI.ui_class_ruler = ui_class_ruler
-
-        ui_class_shielder = Image.open("Pictures/Classes/Shielder.png")
-        ui_class_shielder = ImageTk.PhotoImage(ui_class_shielder)
-        GUI.ui_class_ruler = ui_class_shielder
-
-        ui_class_berserker = Image.open("Pictures/Classes/Berserker.png")
-        ui_class_berserker = ImageTk.PhotoImage(ui_class_berserker)
-        GUI.ui_class_ruler = ui_class_berserker
+    def import_image_resize(self, file_path, x, y):
+        image_reference = Image.open(file_path)
+        image_reference = image_reference.resize((x, y), Image.ANTIALIAS)
+        image_reference = ImageTk.PhotoImage(image_reference)
+        return image_reference

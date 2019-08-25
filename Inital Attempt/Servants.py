@@ -16,20 +16,19 @@ def get_servant(name):
 
 def get_player_servants(servant_database):
     player_servants = servant_database
-    S_list = []
+    servant_list = []
     for i in range(0,3):
-        S = player_servants["Servants"][int(player_servants["ActiveServants"][i])]
-        file_path = str("Servants/" + S + ".json")
+        servant = player_servants["Servants"][int(player_servants["ActiveServants"][i])]
+        file_path = str("Servants/" + servant + ".json")
         with open(file_path, 'r', encoding="utf8") as file_ref:
             json_ref = json.load(file_ref)  # Load file into JSON module
-            S_level = int(player_servants["Levels"][int(player_servants["ActiveServants"][i])])
-            json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (S_level / 30)))
-            json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (S_level / 30)))
-            json_ref.update({"Level": S_level})
+            servant_level = int(player_servants["Levels"][int(player_servants["ActiveServants"][i])])
+            json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (servant_level / 30)))
+            json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (servant_level / 30)))
+            json_ref.update({"Level": servant_level})
             json_ref.update({"Allied": True})
-            S_list.append(json_ref)
-    S1 = S_list[0]
-    S2 = S_list[1]
-    S3 = S_list[2]
-    return S1,S2,S3
-
+            servant_list.append(json_ref)
+    servant1 = servant_list[0]
+    servant2 = servant_list[1]
+    servant3 = servant_list[2]
+    return servant1, servant2, servant3
