@@ -1,16 +1,18 @@
-import GlobalLibrary
 import ast
+
+import GlobalLibrary
 
 GlobalLibrary.initalise(__file__)
 
 
 class Main:
 
-    def __init__(self, grid_amount, grid_size, GUI):
+    def __init__(self, grid_amount, grid_size, GUI, turn_tracker):
         self.GUI = GUI
         self.grid_size = int(grid_size)
         self.grid_amount = int(grid_amount)
         self.grid = []
+        self.turn_tracker = turn_tracker
         for i in range(0, grid_amount):
             self.grid.append(["#"] * self.grid_amount)
 
@@ -30,6 +32,20 @@ class Main:
         if not isinstance(entity, str):
             self.GUI.draw_servant(entity=entity, pos_x=x, pos_y=y, grid_snap=True, scale=None)
 
+    def spawn_player_servants(self, S1, S2, S3):
+        for y in range(self.grid_amount):
+            for x in range(self.grid_amount):
+                if not isinstance(self.grid[y][x], dict):
+                    if (self.grid[y][x]) == "Marker_Start_Pos1":
+                        self.set_grid_pos(x, y, S1)
+                    if (self.grid[y][x]) == "Marker_Start_Pos2":
+                        self.set_grid_pos(x, y, S2)
+                    if (self.grid[y][x]) == "Marker_Start_Pos3":
+                        self.set_grid_pos(x, y, S3)
+        self.turn_tracker.TurnCounterDict.update({1: S1["Name"]})
+        self.turn_tracker.TurnCounterDict.update({2: S2["Name"]})
+        self.turn_tracker.TurnCounterDict.update({3: S3["Name"]})
+
     def move_grid_pos(self, old_x, old_y, new_x, new_y, is_entity):
         entity = self.grid[old_y][old_x]
         self.grid[old_y][old_x] = "#"
@@ -41,16 +57,18 @@ class Main:
         for y in range(self.grid_amount):
             for x in range(self.grid_amount):
                 if not isinstance(self.grid[y][x], dict):
-                    if (self.grid[y][x]) == "#":
+                    if (self.grid[y][x]) == "#" or "Marker" in (self.grid[y][x]):
                         tile_image = self.GUI.ui_tiles_chaldea['Floor']
                     else:
-                        print((self.grid[y][x]))
                         tile_image = self.GUI.ui_tiles_chaldea[(self.grid[y][x])]
                     self.GUI.grid_graphics = []
-                    self.GUI.grid_graphics.append(self.GUI.canvas.create_image((self.GUI.grid_origin_x + (self.grid_size*x)), (self.GUI.grid_origin_y + (self.grid_size*y)), image=tile_image, anchor="nw"))
+                    self.GUI.grid_graphics.append(
+                        self.GUI.canvas.create_image((self.GUI.grid_origin_x + (self.grid_size * x)),
+                                                     (self.GUI.grid_origin_y + (self.grid_size * y)), image=tile_image,
+                                                     anchor="nw"))
 
     def load_map(self, map_name):
-        map_path = str("Maps/"+map_name+".txt")
+        map_path = str("Maps/" + map_name + ".txt")
         y = 0
         with open(map_path, "r") as map_file:
             for map_line in map_file.readlines():
