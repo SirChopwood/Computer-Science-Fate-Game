@@ -1,6 +1,6 @@
 import json
 
-import GlobalLibrary
+from Scripts import GlobalLibrary
 
 GlobalLibrary.initalise(__file__)
 
@@ -17,7 +17,7 @@ def get_servant(name):
 def get_player_servants(servant_database):
     player_servants = servant_database
     servant_list = []
-    for i in range(0,3):
+    for i in range(0, 3):
         servant = player_servants["Servants"][int(player_servants["ActiveServants"][i])]
         file_path = str("Servants/" + servant + ".json")
         with open(file_path, 'r', encoding="utf8") as file_ref:

@@ -1,7 +1,8 @@
-import pymongo
-import os
 import json
+import os
+
 import bson
+import pymongo
 
 
 class ServantDatabase:
@@ -42,6 +43,7 @@ class ServantDatabase:
                 self.database_servants.insert_one(file_json)
 
                 print("File Uploaded")
+
 
 SDB = ServantDatabase()
 SDB.update_servant()

@@ -2,8 +2,9 @@ import json
 import os
 import sys
 
-import GlobalLibrary
 import pymongo
+
+from Scripts import GlobalLibrary
 
 GlobalLibrary.initalise(__file__)
 

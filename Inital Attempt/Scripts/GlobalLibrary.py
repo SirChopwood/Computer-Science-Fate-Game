@@ -42,5 +42,7 @@ def log_message(message):
         log_file.write(message)
 
 
-os.remove("FateGameLog.txt")
+if os.path.exists("FateGameLog.txt"):
+    os.remove("FateGameLog.txt")
+
 initalise(__file__)

@@ -26,3 +26,7 @@ http://www.java2s.com/Code/Python/GUI-Tk/Bindmouseclickactiontotheobjectonacanva
 http://effbot.org/tkinterbook/canvas.htm
 https://www.programiz.com/python-programming/methods/dictionary/update
 https://www.codecademy.com/forum_questions/51fb851babf821be89002852
+https://www.guru99.com/python-check-if-file-exists.html
+https://stackoverflow.com/questions/9856683/using-pythons-os-path-how-do-i-go-up-one-directory
+https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000410510-PyCharm-won-t-recognize-installed-module
+https://stackoverflow.com/questions/16115378/tkinter-example-code-for-multiple-windows-why-wont-buttons-load-correctly

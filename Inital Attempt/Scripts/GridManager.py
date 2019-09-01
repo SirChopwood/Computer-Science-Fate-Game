@@ -1,6 +1,6 @@
 import ast
 
-import GlobalLibrary
+from Scripts import GlobalLibrary, Servants
 
 GlobalLibrary.initalise(__file__)
 
@@ -32,7 +32,8 @@ class Main:
         if not isinstance(entity, str):
             self.GUI.draw_servant(entity=entity, pos_x=x, pos_y=y, grid_snap=True, scale=None)
 
-    def spawn_player_servants(self, S1, S2, S3):
+    def spawn_player_servants(self, servant_database):
+        S1, S2, S3 = Servants.get_player_servants(servant_database)
         for y in range(self.grid_amount):
             for x in range(self.grid_amount):
                 if not isinstance(self.grid[y][x], dict):

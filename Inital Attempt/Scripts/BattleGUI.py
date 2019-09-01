@@ -1,8 +1,8 @@
 import tkinter
 
-import UIAssetImport
-import GlobalLibrary
 from PIL import Image, ImageTk
+
+from Scripts import UIAssetImport, GlobalLibrary
 
 GlobalLibrary.initalise(__file__)
 
@@ -10,7 +10,7 @@ GlobalLibrary.initalise(__file__)
 class Main:
 
     def __init__(self, grid_amount, grid_size, turn_tracker, player_stats):
-        window = tkinter.Toplevel()
+        window = tkinter.Tk()
         self.window = window
         window.attributes("-fullscreen", True)
         # Set Window
@@ -36,42 +36,33 @@ class Main:
             UIAssetImport.Battle(self, grid_size)
         # Create main Canvas
         self.canvas = tkinter.Canvas(window, width=self.monitor_resolution_x, height=self.monitor_resolution_y,
-                                     bg="#333337")
+                                     bg="#333337", bd=0, highlightthickness=0, relief='ridge')
         self.canvas.pack()
-        # Create File Menu Bar
-        self.root_menu = tkinter.Menu(window)
-        window.config(menu=self.root_menu)
-        self.file_menu = tkinter.Menu(self.root_menu)
-        self.root_menu.add_cascade(label="File", menu=self.file_menu)
-        self.file_menu.add_command(label="Exit", command=window.quit)
+        self.canvas.create_image(10, 0, image=self.logo_image, anchor="nw", tags="logo_image")
+        self.canvas.tag_bind("logo_image", "<Button-1>", self.quit_program)
 
         # Set Mouse Binds
         self.canvas.bind("<Button-1>", self.click)
 
-        logo_image = Image.open("Pictures/Logo.png")
-        logo_image = logo_image.resize((int(self.monitor_resolution_x / 10), int(self.monitor_resolution_y / 10)),
-                                       Image.ANTIALIAS)
-        logo_image = ImageTk.PhotoImage(logo_image)
-        self.logo_image = logo_image
-        self.canvas.create_image(10, 0, image=logo_image, anchor="nw")
-
-        self.turn_counter_bg = self.canvas.create_image(self.monitor_resolution_x, self.monitor_resolution_y - 24,
+        self.turn_counter_bg = self.canvas.create_image(self.monitor_resolution_x, self.monitor_resolution_y,
                                                         image=self.ui_turn_order_bg, anchor="se")
         self.turn_counter_text = (
-            self.canvas.create_text(self.monitor_resolution_x - 65, self.monitor_resolution_y - 112, text="DEBUG",
+            self.canvas.create_text(self.monitor_resolution_x - 65, self.monitor_resolution_y - 88, text="DEBUG",
                                     fill="#ffffff",
                                     font=("Coolvetica Rg", 20), anchor="c", justify="center"))
         self.turn_counter_image = []
         self.turn_counter_image.append(
-            self.canvas.create_image(self.monitor_resolution_x - 275, self.monitor_resolution_y - 55, image=logo_image,
+            self.canvas.create_image(self.monitor_resolution_x - 275, self.monitor_resolution_y - 30, image=self.logo_image,
                                      anchor="c"))
         self.turn_counter_image.append(
-            self.canvas.create_image(self.monitor_resolution_x - 175, self.monitor_resolution_y - 55, image=logo_image,
+            self.canvas.create_image(self.monitor_resolution_x - 175, self.monitor_resolution_y - 30, image=self.logo_image,
                                      anchor="c"))
         self.turn_counter_image.append(
-            self.canvas.create_image(self.monitor_resolution_x - 75, self.monitor_resolution_y - 55, image=logo_image,
+            self.canvas.create_image(self.monitor_resolution_x - 75, self.monitor_resolution_y - 30, image=self.logo_image,
                                      anchor="c"))
 
+    def quit_program(self, event):
+        self.window.destroy()
 
     def start_mainloop(self):
         self.window.mainloop()
@@ -122,17 +113,13 @@ class Main:
         for shape in self.selection_array:
             self.canvas.delete(shape)
         self.selection_array.clear()
-        if click_selection != "#" and click_selection is not None:
+        if isinstance(click_selection, dict):
             for image_ref in self.image_ref_array:
                 if image_ref['Name'] == click_selection['Name'] == self.turn_tracker.TurnCounterDict[
-                self.turn_tracker.CurrentTurnCounter]:
+                    self.turn_tracker.CurrentTurnCounter]:
                     self.servant_selected_both(click_selection)
-#                    if self.servant_has_moved:
-#                        self.servant_selected_attack(click_selection)
-#                    elif self.servant_has_attacked:
-#                        self.servant_selected_move(click_selection)
                 elif image_ref['Name'] == click_selection['Name'] != self.turn_tracker.TurnCounterDict[
-                self.turn_tracker.CurrentTurnCounter]:
+                    self.turn_tracker.CurrentTurnCounter]:
                     self.selected_servant = click_selection
                     self.display_servant_stats()
 
@@ -148,12 +135,12 @@ class Main:
             for column in range(selected_servant_move):
                 x = int(column + (selected_servant_move_start_x / self.grid_size))
                 y = int(row + (selected_servant_move_start_y / self.grid_size))
-                if 0 <= x < (self.grid_amount - 2) and 0 <= y < (self.grid_amount - 2):
+                if 0 <= x < self.grid_amount and 0 <= y < self.grid_amount:
                     if self.grid_manager.get_grid_pos(x, y) == "#":
                         x_start = selected_servant_move_start_x + (column * self.grid_size) + self.grid_origin_x
                         y_start = selected_servant_move_start_y + (row * self.grid_size) + self.grid_origin_y
                         selection_box = self.canvas.create_image(x_start, y_start, image=self.ui_move_icon,
-                                     anchor="nw", tags="move_selection_box")
+                                                                 anchor="nw", tags="move_selection_box")
                         self.selection_array.append(selection_box)
         self.canvas.tag_bind("move_selection_box", "<Button-1>", self.servant_selected_move_click)
         selected_servant_attack = (self.selected_servant['Range'] * 2) + 1
@@ -181,7 +168,7 @@ class Main:
 
     def display_servant_stats(self):
         self.selection_array.append(
-            self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y - 24,
+            self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y,
                                      image=self.ui_servant_select_stats_bg, anchor="s"))
         try:
             if self.selected_servant['Class'] == "Saber":
@@ -203,39 +190,41 @@ class Main:
             elif self.selected_servant['Class'] == "Berserker":
                 servant_class = self.ui_class_berserker
         except KeyError:
-                print("REMEMBER TO ADD CLASSES TO SERVANTS")
+            print("REMEMBER TO ADD CLASSES TO SERVANTS")
 
         self.selection_array.append(
-            self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y - 82,
+            self.canvas.create_image(self.monitor_resolution_x / 2, self.monitor_resolution_y - 60,
                                      image=servant_class, anchor="c"))
         self.selection_array.append(
-            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 115,
+            self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 92,
                                     text=self.selected_servant['Name'], fill="#BF9A06",
                                     font=("Coolvetica Rg", 20)))
         try:
             self.selection_array.append(
-                self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 85,
-                                    text=str(
-                                        "Level " + str(self.selected_servant['Level']) + " " + self.selected_servant[
-                                            'Title']), fill="#999999",
-                                    font=("Coolvetica Rg", 14)))
+                self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 62,
+                                        text=str(
+                                            "Level " + str(self.selected_servant['Level']) + " " +
+                                            self.selected_servant[
+                                                'Title']), fill="#999999",
+                                        font=("Coolvetica Rg", 14)))
         except KeyError:
             print("REMEMBER TO ADD TITLES TO SERVANTS")
             self.selection_array.append(
-                self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 85,
+                self.canvas.create_text(self.monitor_resolution_x / 2, self.monitor_resolution_y - 62,
                                         text=str(
-                                            "Level " + str(self.selected_servant['Level']) + " Servant"), fill="#999999",
+                                            "Level " + str(self.selected_servant['Level']) + " Servant"),
+                                        fill="#999999",
                                         font=("Coolvetica Rg", 14)))
         self.selection_array.append(
-            self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 55,
+            self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 32,
                                     text=str("HP " + str(self.selected_servant['HP'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
         self.selection_array.append(
-            self.canvas.create_text((self.monitor_resolution_x / 2), self.monitor_resolution_y - 55,
+            self.canvas.create_text((self.monitor_resolution_x / 2), self.monitor_resolution_y - 32,
                                     text=str("ATK " + str(self.selected_servant['ATK'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
         self.selection_array.append(
-            self.canvas.create_text((self.monitor_resolution_x / 2) + 200, self.monitor_resolution_y - 55,
+            self.canvas.create_text((self.monitor_resolution_x / 2) + 200, self.monitor_resolution_y - 32,
                                     text=str("Move " + str(self.selected_servant['Move'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
 
@@ -246,7 +235,6 @@ class Main:
         new_y = int((event.y - self.grid_origin_y) / self.grid_size)
         self.grid_manager.move_grid_pos(self.grid_clicked_x, self.grid_clicked_y, new_x, new_y, is_entity=True)
         self.turn_tracker.next_turn()
-
 
     def servant_selected_attack_click(self, event):
         self.selected_servant = object
