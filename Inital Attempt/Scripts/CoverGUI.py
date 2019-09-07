@@ -41,6 +41,6 @@ class Main:
         self.window.destroy()
 
     def open_main_menu(self, event):
-        self.window.destroy()
-        menu_interface = MenuGUI.Main()
+        self.canvas.destroy()
+        menu_interface = MenuGUI.Main(self.window)
         menu_interface.start_mainloop()

@@ -175,3 +175,22 @@ def get_servant_icon(entity, x, y):
     image_reference = image_reference.resize((x, y), Image.ANTIALIAS)
     image_reference = ImageTk.PhotoImage(image_reference)
     return image_reference
+
+def image(file_path):
+    image_reference = Image.open(file_path)
+    image_reference = ImageTk.PhotoImage(image_reference)
+    return image_reference
+
+def image_resize(file_path, x, y):
+    image_reference = Image.open(file_path)
+    image_reference = image_reference.resize((x, y), Image.ANTIALIAS)
+    image_reference = ImageTk.PhotoImage(image_reference)
+    return image_reference
+
+def image_scale(file_path, scale):
+    image_reference = Image.open(file_path)
+    scale_x = int(image_reference.size[0] * scale)
+    scale_y = int(image_reference.size[1] * scale)
+    image_reference = image_reference.resize((scale_x, scale_y), Image.ANTIALIAS)
+    image_reference = ImageTk.PhotoImage(image_reference)
+    return image_reference

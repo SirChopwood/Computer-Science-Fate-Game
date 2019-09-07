@@ -1,40 +1,41 @@
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
-[2019/09/01 23:04:17] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
-[2019/09/01 23:04:17] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
-[2019/09/01 23:04:17] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
-[2019/09/01 23:04:17] [INIT]    Cover
-[2019/09/01 23:04:18] [NOTICE]  Menu Graphical Assets Imported
-[2019/09/01 23:04:23] [INIT]    Menu
-[2019/09/01 23:04:24] [NOTICE]  Menu Graphical Assets Imported
-[2019/09/01 23:04:24] [INIT]    ServantDatabase
-[2019/09/01 23:04:24] [NOTICE]  Connecting to Mongo Server!
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Jeanne D'arc.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Astolfo.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Astolfo.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Mordred Pendragon.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
-[2019/09/01 23:04:24] [DEBUG]   File Found - Servants/Merlin.json
-[2019/09/01 23:04:24] [DEBUG]   File Matched - Servants/Merlin.json
-[2019/09/01 23:04:24] [NOTICE]  File Sync Complete!
-[2019/09/01 23:04:24] [INIT]    PlayerDatabase
-[2019/09/01 23:04:24] [NOTICE]  Connecting to Mongo Server!
-[2019/09/01 23:04:24] [INIT]    Main
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
+[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
+[2019/09/07 02:06:26] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
+[2019/09/07 02:06:26] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
+[2019/09/07 02:06:26] [INIT]    Cover
+[2019/09/07 02:06:27] [NOTICE]  Menu Graphical Assets Imported
+[2019/09/07 02:06:27] [INIT]    Menu
+[2019/09/07 02:06:28] [NOTICE]  Menu Graphical Assets Imported
+[2019/09/07 02:06:28] [INIT]    ServantDatabase
+[2019/09/07 02:06:28] [NOTICE]  Connecting to Mongo Server!
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Jeanne D'arc.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Astolfo.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Astolfo.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Mordred Pendragon.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
+[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Merlin.json
+[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Merlin.json
+[2019/09/07 02:06:28] [NOTICE]  File Sync Complete!
+[2019/09/07 02:06:28] [INIT]    PlayerDatabase
+[2019/09/07 02:06:28] [NOTICE]  Connecting to Mongo Server!
+[2019/09/07 02:06:29] [INIT]    Main
+[2019/09/07 02:06:29] [ERROR]   Servant needs icon: Mashu Kyrielight

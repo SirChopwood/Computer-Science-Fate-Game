@@ -2,19 +2,15 @@ import tkinter
 
 from PIL import Image, ImageTk
 
-from Scripts import UIAssetImport, GlobalLibrary
+from Scripts import UIAssetImport, GlobalLibrary, MenuGUI
 
 GlobalLibrary.initalise(__file__)
 
 
 class Main:
 
-    def __init__(self, grid_amount, grid_size, turn_tracker, player_stats):
-        window = tkinter.Tk()
+    def __init__(self, window, grid_amount, grid_size, turn_tracker, player_stats):
         self.window = window
-        window.attributes("-fullscreen", True)
-        # Set Window
-        window.title("Fate Game")
         # Set ""Global"" Variables
         self.grid_amount = grid_amount  # Number of Boxes
         self.grid_size = grid_size  # Box Size
@@ -39,7 +35,7 @@ class Main:
                                      bg="#333337", bd=0, highlightthickness=0, relief='ridge')
         self.canvas.pack()
         self.canvas.create_image(10, 0, image=self.logo_image, anchor="nw", tags="logo_image")
-        self.canvas.tag_bind("logo_image", "<Button-1>", self.quit_program)
+        self.canvas.tag_bind("logo_image", "<Button-1>", self.open_main_menu)
 
         # Set Mouse Binds
         self.canvas.bind("<Button-1>", self.click)
@@ -66,6 +62,11 @@ class Main:
 
     def start_mainloop(self):
         self.window.mainloop()
+
+    def open_main_menu(self, event):
+        self.canvas.destroy()
+        menu_interface = MenuGUI.Main(self.window)
+        menu_interface.start_mainloop()
 
     def draw_grid(self):
         a1 = int(self.grid_amount / 2)
