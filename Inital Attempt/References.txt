@@ -30,3 +30,10 @@ https://www.guru99.com/python-check-if-file-exists.html
 https://stackoverflow.com/questions/9856683/using-pythons-os-path-how-do-i-go-up-one-directory
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000410510-PyCharm-won-t-recognize-installed-module
 https://stackoverflow.com/questions/16115378/tkinter-example-code-for-multiple-windows-why-wont-buttons-load-correctly
+https://www.geeksforgeeks.org/python-after-method-in-tkinter/
+http://effbot.org/tkinterbook/canvas.htm
+https://stackoverflow.com/questions/22216076/unicodedecodeerror-utf8-codec-cant-decode-byte-0xa5-in-position-0-invalid-s
+https://developers.google.com/edu/python/lists
+https://www.geeksforgeeks.org/append-extend-python/
+https://stackoverflow.com/questions/23690993/how-do-we-delete-a-shape-thats-already-been-created-in-tkinter-canvas/23692118
+https://stackoverflow.com/questions/4121362/python-tkinter-version-of-canvas-create-text-that-supports-word-wrap

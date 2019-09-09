@@ -9,9 +9,10 @@ GlobalLibrary.initalise(__file__)
 
 class Main:
 
-    def __init__(self, window, grid_amount, grid_size, turn_tracker, player_stats):
+    def __init__(self, window, user_IP, grid_amount, grid_size, turn_tracker, player_stats):
         self.window = window
         # Set ""Global"" Variables
+        self.user_IP = user_IP
         self.grid_amount = grid_amount  # Number of Boxes
         self.grid_size = grid_size  # Box Size
         self.grid_manager = None
@@ -65,7 +66,7 @@ class Main:
 
     def open_main_menu(self, event):
         self.canvas.destroy()
-        menu_interface = MenuGUI.Main(self.window)
+        menu_interface = MenuGUI.Main(self.window, self.user_IP)
         menu_interface.start_mainloop()
 
     def draw_grid(self):

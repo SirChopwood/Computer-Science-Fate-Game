@@ -8,8 +8,9 @@ GlobalLibrary.initalise(__file__)
 
 class Main:
 
-    def __init__(self, window):
+    def __init__(self, window, user_IP):
         self.init_finished = False
+        self.user_IP = user_IP
         self.window = window
         self.image_array = []
         self.image_ref_array = []
@@ -27,6 +28,7 @@ class Main:
         self.servant_list_page_max = 0
         self.servant_list_page = 0
         self.servant_list = []
+        self.servant_data = object
         self.canvas_servant_list_selected_bg = None
         self.selected_servant = ""
         self.monitor_resolution_x = self.window.winfo_screenwidth()
@@ -55,11 +57,11 @@ class Main:
         self.window.destroy()
 
     def update_databases(self):
-        player_database = Mongo.PlayerDatabase()
+        self.player_database = Mongo.PlayerDatabase()
         user_IP = socket.gethostbyname(socket.gethostname())
-        self.player_servants = player_database.find_player_servants(user_IP)
+        self.player_servants = self.player_database.find_player_servants(user_IP)
         self.player_stats = PlayerStats.Main(self.player_servants)
-        self.player_inventory = player_database.find_player_inventory(user_IP)
+        self.player_inventory = self.player_database.find_player_inventory(user_IP)
 
     def create_canvas_quit(self):
         self.canvas_quit = tkinter.Canvas(self.window, width=700, height=180, bg="#333337", bd=0, highlightthickness=0,
@@ -148,6 +150,7 @@ class Main:
             return
         if isinstance(self.canvas_servant_list_selected_bg, object):
             self.canvas_servant_list.itemconfigure(self.canvas_servant_list_selected_bg, fill="#2c2303")
+        self.hide_servant_bio("")
         tag = self.canvas_servant_list.itemcget(self.canvas_servant_list.find_closest(event.x, event.y), "tags")
         tag = tag.strip(" servant_list current")
         tag = tag.strip("{")
@@ -165,61 +168,61 @@ class Main:
                                                  relief='ridge')
         self.canvases.append(self.canvas_servant_bio)
         self.canvas_servant_bio.grid(row=1, column=1, sticky="s", rowspan=2)
+        self.canvas_servant_bio.bind("<Button-1>", self.hide_servant_bio)
 
     def show_servant_bio(self):
-        for widget in self.canvas_servant_bio.find_withtag("servant_bio"):
-            self.canvas_servant_bio.delete(widget)
         for servant in self.servant_list[self.servant_list_page]:
             if servant['Name'] == self.selected_servant:
-                servant_data = servant
-        base_servant_data = Servants.get_servant(servant_data['Name'])
+                self.servant_data = servant
+        base_servant_data = Servants.get_servant(self.servant_data['Name'])
         self.canvas_servant_bio.create_image(415, 500, image=self.ui_servant_bio, anchor="c", tags="servant_bio")
-        self.canvas_servant_bio.create_text(220, 280, text=servant_data['Name'], fill="#cccccc",
+        self.canvas_servant_bio.create_text(220, 280, text=self.servant_data['Name'], fill="#cccccc",
                                             font=("Coolvetica Rg", 30),
                                             anchor="w", tags="servant_bio")
         try:
-            self.selected_servant_image = UIAssetImport.get_servant_icon(servant_data, 125, 125)
+            self.selected_servant_image = UIAssetImport.get_servant_icon(self.servant_data, 125, 125)
         except FileNotFoundError:
             GlobalLibrary.error("REMEMBER TO ADD ICON PATHS TO SERVANTS!!!")
             self.selected_servant_image = UIAssetImport.image_resize("Pictures/Class-Shielder-Gold.png", 125, 125)
         self.canvas_servant_bio.create_image(107, 315, image=self.selected_servant_image, anchor="c",
                                              tags="servant_bio")
         self.canvas_servant_bio.create_text(220, 320,
-                                            text=str("HP: " + str(servant_data['HP']) + " (" + str(
+                                            text=str("HP: " + str(self.servant_data['HP']) + " (" + str(
                                                 base_servant_data['HP']) + ")"), fill="#888888",
                                             font=("Coolvetica Rg", 15), anchor="w", tags="servant_bio")
         self.canvas_servant_bio.create_text(400, 320,
                                             text=str(
-                                                "HP: " + str(servant_data['ATK']) + " (" + str(
+                                                "HP: " + str(self.servant_data['ATK']) + " (" + str(
                                                     base_servant_data['ATK']) + ")"), fill="#888888",
                                             font=("Coolvetica Rg", 15), anchor="w", tags="servant_bio")
         self.canvas_servant_bio.create_text(580, 320,
-                                            text=str("Move: " + str(servant_data['Move'])), fill="#888888",
+                                            text=str("Move: " + str(self.servant_data['Move'])), fill="#888888",
                                             font=("Coolvetica Rg", 15), anchor="w", tags="servant_bio")
-        self.canvas_servant_bio.create_rectangle(215,340,780,370, fill="#2c2303")
+        self.canvas_servant_bio.create_rectangle(215, 340, 780, 370, fill="#2c2303", tags="servant_bio")
 
-        self.canvas_servant_bio.create_rectangle(220, 345, (servant_data['Level'] * ((775 - 215) / 100)) + 215, 365, fill="#433607")
-        self.canvas_servant_bio.create_text(((servant_data['Level'] * ((775 - 215) / 100)) / 2) + 215, 355,
-                                            text=str(servant_data['Level']), fill="#888888",
+        self.canvas_servant_bio.create_rectangle(220, 345, (self.servant_data['Level'] * ((775 - 215) / 100)) + 215,
+                                                 365, fill="#433607", tags="servant_bio")
+        self.canvas_servant_bio.create_text(((self.servant_data['Level'] * ((775 - 215) / 100)) / 2) + 215, 355,
+                                            text=str(self.servant_data['Level']), fill="#888888",
                                             font=("Coolvetica Rg", 12), anchor="c", tags="servant_bio")
         try:
-            if servant_data['Class'] == "Saber":
+            if self.servant_data['Class'] == "Saber":
                 servant_class = self.ui_class_saber
-            elif servant_data['Class'] == "Archer":
+            elif self.servant_data['Class'] == "Archer":
                 servant_class = self.ui_class_archer
-            elif servant_data['Class'] == "Lancer":
+            elif self.servant_data['Class'] == "Lancer":
                 servant_class = self.ui_class_lancer
-            elif servant_data['Class'] == "Caster":
+            elif self.servant_data['Class'] == "Caster":
                 servant_class = self.ui_class_caster
-            elif servant_data['Class'] == "Rider":
+            elif self.servant_data['Class'] == "Rider":
                 servant_class = self.ui_class_rider
-            elif servant_data['Class'] == "Assassin":
+            elif self.servant_data['Class'] == "Assassin":
                 servant_class = self.ui_class_assassin
-            elif servant_data['Class'] == "Ruler":
+            elif self.servant_data['Class'] == "Ruler":
                 servant_class = self.ui_class_ruler
-            elif servant_data['Class'] == "Shielder":
+            elif self.servant_data['Class'] == "Shielder":
                 servant_class = self.ui_class_shielder
-            elif servant_data['Class'] == "Berserker":
+            elif self.servant_data['Class'] == "Berserker":
                 servant_class = self.ui_class_berserker
             self.canvas_servant_bio.create_image(740, 290, image=servant_class, anchor="c", tags="servant_bio")
         except KeyError:
@@ -229,8 +232,9 @@ class Main:
 
         try:
             self.canvas_servant_bio.create_text(55, 425,
-                                            text=str(servant_data['Desc']), fill="#888888", font=("Coolvetica Rg", 15),
-                                            anchor="nw", justify="left", width=725, tags="servant_bio")
+                                                text=str(self.servant_data['Desc']), fill="#888888",
+                                                font=("Coolvetica Rg", 15),
+                                                anchor="nw", justify="left", width=725, tags="servant_bio")
         except KeyError:
             GlobalLibrary.error("REMEMBER TO ADD DESCRIPTIONS TO SERVANTS")
         self.canvas_team_list.create_image(100, (int(self.canvas_team_list.cget("height")) / 2) - 160,
@@ -248,6 +252,36 @@ class Main:
                                            tags=("servant_bio", "team_slot3"))
         self.canvas_team_list.create_image(100, (int(self.canvas_team_list.cget("height")) / 2) + 100,
                                            image=self.ui_right_arrow, anchor="c", tags=("servant_bio", "team_slot3"))
+        self.canvas_team_list.tag_bind("team_slot1", "<Button-1>", self.set_player_servant)
+        self.canvas_team_list.tag_bind("team_slot2", "<Button-1>", self.set_player_servant)
+        self.canvas_team_list.tag_bind("team_slot3", "<Button-1>", self.set_player_servant)
+
+    def hide_servant_bio(self, event):
+        for widget in self.canvas_servant_bio.find_withtag("servant_bio"):
+            self.canvas_servant_bio.delete(widget)
+        for widget in self.canvas_team_list.find_withtag("servant_bio"):
+            self.canvas_team_list.delete(widget)
+
+    def set_player_servant(self, event):
+        tag = self.canvas_team_list.itemcget(self.canvas_team_list.find_closest(event.x, event.y), "tags")
+        tag = tag.strip(" servant_bio current}")
+        slot = int(tag.strip("{team_slot"))
+        for i in range(0, 2):
+            servant = self.player_servants['Servants'][self.player_servants['ActiveServants'][i]]
+            if self.selected_servant == servant:
+                return
+        for i in range(len(self.player_servants['Servants'])):
+            if self.player_servants['Servants'][i] == self.selected_servant:
+                self.player_servants['ActiveServants'][slot - 1] = i
+                self.player_database.set_player_servants(self.user_IP, self.player_servants)
+                if slot == 1:
+                    self.player_stats.servant_1 = self.selected_servant
+                elif slot == 2:
+                    self.player_stats.servant_2 = self.selected_servant
+                elif slot == 3:
+                    self.player_stats.servant_3 = self.selected_servant
+                self.player_stats.set_servant_references(self.player_servants)
+                self.update_team_list()
 
     def create_canvas_team_list(self):
         self.canvas_team_list = tkinter.Canvas(self.window, width=370, height=900, bg="#333337", bd=0,
@@ -396,8 +430,8 @@ class Main:
         grid_amount = 20  # default = 20
         grid_size = 50  # default = 50
         turn_tracker = TurnTracker.Main(player_stats=self.player_stats)
-        battle_interface = BattleGUI.Main(window=self.window, grid_amount=grid_amount, grid_size=grid_size,
-                                          turn_tracker=turn_tracker,
+        battle_interface = BattleGUI.Main(window=self.window, user_IP=self.user_IP, grid_amount=grid_amount,
+                                          grid_size=grid_size, turn_tracker=turn_tracker,
                                           player_stats=self.player_stats)
         battle_interface.draw_grid()
         turn_tracker.GUI = battle_interface

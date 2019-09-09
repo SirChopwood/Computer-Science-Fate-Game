@@ -90,3 +90,8 @@ class PlayerDatabase:
         search_query = {"IP": ip}
         search_result = self.database_player_servants.find_one(search_query)
         return search_result
+
+    def set_player_servants(self, ip, servant_database):
+        search_query = {"IP": ip}
+        self.database_player_servants.find_one_and_replace(search_query, servant_database)
+        self.database_player_servants.find_one()
