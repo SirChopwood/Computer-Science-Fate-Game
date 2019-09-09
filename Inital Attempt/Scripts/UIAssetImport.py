@@ -133,9 +133,16 @@ class Menu:
         GUI.logo_image = self.image_resize("Pictures/Logo.png", int(GUI.monitor_resolution_x / 10),
                                            int(GUI.monitor_resolution_y / 10))
         GUI.ui_servant_list = self.image("Pictures/UI/ServantList.png")
+        GUI.ui_servant_list_button = self.image("Pictures/UI/ServantListButton.png")
+        GUI.ui_servant_list_title = self.image("Pictures/UI/ServantListTitle.png")
         GUI.ui_servant_bio = self.image("Pictures/UI/ServantBio.png")
         GUI.ui_fight_button = self.image("Pictures/UI/FightButton.png")
         GUI.ui_team_list = self.image("Pictures/UI/TeamList.png")
+
+        # GENERIC ICONS
+        GUI.ui_right_arrow = self.image_resize("Pictures/UI/RightArrow.png", 20, 20)
+        GUI.ui_left_arrow = self.image_resize("Pictures/UI/LeftArrow.png", 20, 20)
+        GUI.ui_refresh = self.image_resize("Pictures/UI/Refresh.png", 20, 20)
 
         # CLASS LOGOS
         GUI.ui_class_saber = self.image_scale("Pictures/Classes/Saber.png", 0.7)

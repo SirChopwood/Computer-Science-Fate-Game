@@ -13,7 +13,6 @@ def get_servant(name):
         file_json.update({"Allied": False})
         return file_json
 
-
 def get_player_servants(servant_database):
     player_servants = servant_database
     servant_list = []
@@ -36,24 +35,20 @@ def get_player_servants(servant_database):
 def get_all_player_servants(servant_database):
     servant_list = []
     servant_list_master = []
-    counter = 1
-    print(servant_database)
-    print(servant_database['Servants'])
     for i in range(len(servant_database["Servants"])):
         servant = servant_database["Servants"][i]
         file_path = str("Servants/" + servant + ".json")
         with open(file_path, 'r', encoding="utf8") as file_ref:
             json_ref = json.load(file_ref)  # Load file into JSON module
-            servant_level = int(servant_database["Levels"][i])
-            json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (servant_level / 30)))
-            json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (servant_level / 30)))
-            json_ref.update({"Level": servant_level})
-            json_ref.update({"Allied": True})
-            servant_list.append(json_ref)
-        counter += 1
-        if counter == 10:
+        servant_level = int(servant_database["Levels"][i])
+        json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (servant_level / 30)))
+        json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (servant_level / 30)))
+        json_ref.update({"Level": servant_level})
+        json_ref.update({"Allied": True})
+        servant_list.append(json_ref)
+        if len(servant_list) == 10:
             servant_list_master.append(servant_list)
-            servant_list.clear()
-            counter = 1
+            servant_list = []
+
     servant_list_master.append(servant_list)
     return servant_list_master

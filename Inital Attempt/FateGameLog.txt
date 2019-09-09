@@ -1,41 +1,71 @@
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
-[2019/09/07 02:06:26] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
-[2019/09/07 02:06:26] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
-[2019/09/07 02:06:26] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
-[2019/09/07 02:06:26] [INIT]    Cover
-[2019/09/07 02:06:27] [NOTICE]  Menu Graphical Assets Imported
-[2019/09/07 02:06:27] [INIT]    Menu
-[2019/09/07 02:06:28] [NOTICE]  Menu Graphical Assets Imported
-[2019/09/07 02:06:28] [INIT]    ServantDatabase
-[2019/09/07 02:06:28] [NOTICE]  Connecting to Mongo Server!
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Jeanne D'arc.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Astolfo.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Astolfo.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Mordred Pendragon.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
-[2019/09/07 02:06:28] [DEBUG]   File Found - Servants/Merlin.json
-[2019/09/07 02:06:28] [DEBUG]   File Matched - Servants/Merlin.json
-[2019/09/07 02:06:28] [NOTICE]  File Sync Complete!
-[2019/09/07 02:06:28] [INIT]    PlayerDatabase
-[2019/09/07 02:06:28] [NOTICE]  Connecting to Mongo Server!
-[2019/09/07 02:06:29] [INIT]    Main
-[2019/09/07 02:06:29] [ERROR]   Servant needs icon: Mashu Kyrielight
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
+[2019/09/09 16:59:50] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
+[2019/09/09 16:59:50] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
+[2019/09/09 16:59:50] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
+[2019/09/09 16:59:50] [INIT]    Cover
+[2019/09/09 16:59:50] [NOTICE]  Menu Graphical Assets Imported
+[2019/09/09 16:59:51] [INIT]    Menu
+[2019/09/09 16:59:51] [NOTICE]  Menu Graphical Assets Imported
+[2019/09/09 16:59:51] [INIT]    ServantDatabase
+[2019/09/09 16:59:51] [NOTICE]  Connecting to Mongo Server!
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Jeanne D'arc.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Astolfo.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Astolfo.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Mordred Pendragon.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Cu Chulainn (Prototype).json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Cu Chulainn (Prototype).json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Jack the Ripper.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Jack the Ripper.json
+[2019/09/09 16:59:52] [DEBUG]   File Found - Servants/Merlin.json
+[2019/09/09 16:59:52] [DEBUG]   File Matched - Servants/Merlin.json
+[2019/09/09 16:59:52] [NOTICE]  File Sync Complete!
+[2019/09/09 16:59:52] [INIT]    PlayerDatabase
+[2019/09/09 16:59:52] [NOTICE]  Connecting to Mongo Server!
+[2019/09/09 16:59:52] [INIT]    Main
+[2019/09/09 16:59:52] [INIT]    PlayerDatabase
+[2019/09/09 16:59:52] [NOTICE]  Connecting to Mongo Server!
+[2019/09/09 16:59:52] [INIT]    Main
+[2019/09/09 16:59:52] [ERROR]   Servant needs icon: Mashu Kyrielight
+[2019/09/09 16:59:52] [ERROR]   Servant needs icon: Jeanne D'arc
+[2019/09/09 16:59:52] [ERROR]   Servant needs icon: Artoria Pendragon (Lily)
+[2019/09/09 16:59:52] [ERROR]   Servant needs icon: Kid Gilgamesh
+[2019/09/09 16:59:52] [ERROR]   Servant needs icon: Chloe von Einzbern
+[2019/09/09 16:59:53] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2019/09/09 16:59:53] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2019/09/09 16:59:53] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2019/09/09 16:59:54] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2019/09/09 16:59:54] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2019/09/09 16:59:54] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2019/09/09 16:59:54] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2019/09/09 17:00:17] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2019/09/09 17:00:25] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2019/09/09 17:00:25] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2019/09/09 17:00:25] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2019/09/09 17:00:39] [INIT]    PlayerDatabase
+[2019/09/09 17:00:39] [NOTICE]  Connecting to Mongo Server!
+[2019/09/09 17:00:40] [INIT]    Main
+[2019/09/09 17:00:40] [ERROR]   Servant needs icon: Mashu Kyrielight
+[2019/09/09 17:00:40] [ERROR]   Servant needs icon: Jeanne D'arc
+[2019/09/09 17:00:40] [ERROR]   Servant needs icon: Artoria Pendragon (Lily)
+[2019/09/09 17:00:40] [ERROR]   Servant needs icon: Kid Gilgamesh
+[2019/09/09 17:00:40] [ERROR]   Servant needs icon: Chloe von Einzbern

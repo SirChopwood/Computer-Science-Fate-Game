@@ -1,10 +1,16 @@
 {
   "_id": "5d3d1bb21c9d4400009766fb",
-  "Icon": "Pictures/Servants/Merlin.png",
-  "HP": 1629,
-  "ATK": 2091,
-  "Move": 3,
-  "Name": "Merlin",
-  "NP": "Garden of Avalon",
-  "NPClass": "Anti-Unit"
+  "Servant Info":"",
+  "Name":"Merlin",
+  "NP":"Garden of Avalon",
+  "Icon":"Pictures/Servants/Merlin.png",
+  "Title":"Dick-Wizard",
+  "Servant Stats":"",
+  "Class":"Caster",
+  "HP":1817,
+  "ATK":1315,
+  "Move":3,
+  "Range":4,
+  "NPClass":"Anti-Unit",
+  "Rating":5
 }
