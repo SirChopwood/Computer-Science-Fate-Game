@@ -2,7 +2,7 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/README.md" line="1" />
-    <bookmark url="file://$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py" line="45" />
+    <bookmark url="file://$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py" line="55" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="216bd912-2884-4067-853a-1a14e5a0a32f" name="Default Changelist" comment="" />
@@ -14,32 +14,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/MenuGUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="269" column="97" selection-start-line="269" selection-start-column="97" selection-end-line="269" selection-end-column="97" />
+            <state relative-caret-position="511">
+              <caret line="443" column="41" lean-forward="true" selection-start-line="443" selection-start-column="41" selection-end-line="443" selection-end-column="41" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#236#1640#0" />
-                <element signature="e#1680#1702#0" />
-                <element signature="e#1747#1768#0" />
-                <element signature="e#1698#2022#0" />
-                <element signature="e#1812#2269#0" />
-                <element signature="e#2672#4877#0" />
-                <element signature="e#3410#3436#0" />
-                <element signature="e#3534#3560#0" />
-                <element signature="e#4361#4517#0" />
-                <element signature="e#4620#4725#0" />
-                <element signature="e#4696#6506#0" />
-                <element signature="e#7442#8222#0" />
-                <element signature="e#8735#9137#0" />
-                <element signature="e#8892#15143#0" />
-                <element signature="e#15509#15748#0" />
-                <element signature="e#7757#14970#0" />
-                <element signature="e#15012#17475#0" />
-                <element signature="e#17521#18443#0" />
-                <element signature="e#18487#19559#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/TurnTracker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="35" column="55" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/BattleGUI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2920">
+              <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="36" column="40" lean-forward="true" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/EnemyAI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/Servants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="77" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,6 +85,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Setup Script" />
         <option value="Python Script" />
       </list>
     </option>
@@ -68,11 +104,15 @@
       <find>Import.</find>
       <find>servant_data</find>
       <find>print</find>
+      <find>TurnCounterDict</find>
+      <find>TurnCounterList</find>
+      <find>enemy</find>
     </findStrings>
     <replaceStrings>
       <replace>Import.</replace>
       <replace>self.</replace>
       <replace>self.servant_data</replace>
+      <replace>TurnCounterList</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -92,19 +132,22 @@
         <option value="$PROJECT_DIR$/Inital Attempt/UIAssetImport.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/MenuGUI.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/BattleGUI.py" />
-        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/GlobalLibrary.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/Main.py" />
-        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/TurnTracker.py" />
-        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/Scripts/test.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/Scripts/UIAssetImport.py" />
-        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/Servants.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/Scripts/CoverGUI.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/Scripts/Mongo.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/References.txt" />
         <option value="$PROJECT_DIR$/Inital Attempt/Scripts/PlayerStats.py" />
-        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/BattleGUI.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/Servants.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/Enemy AI.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Maps/Chaldea 1-1_Enemies.txt" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/GlobalLibrary.py" />
         <option value="$PROJECT_DIR$/Inital Attempt/Scripts/MenuGUI.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/TurnTracker.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/BattleGUI.py" />
+        <option value="$PROJECT_DIR$/Inital Attempt/Scripts/EnemyAI.py" />
       </list>
     </option>
   </component>
@@ -131,6 +174,12 @@
               <item name="Computer-Science-Fate-Game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="F:\Projects\Computer-Science-Fate-Game" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="Inital Attempt" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Computer-Science-Fate-Game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="F:\Projects\Computer-Science-Fate-Game" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Inital Attempt" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Maps" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Computer-Science-Fate-Game" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -304,7 +353,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.26218852" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.2654388" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -341,16 +390,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py</url>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Inital Attempt/Pictures/Chloe.png" />
@@ -400,56 +439,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/GlobalLibrary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/TurnTracker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/test.py" />
     <entry file="file://$PROJECT_DIR$/Inital Attempt/Main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/UIAssetImport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="180" selection-start-line="180" selection-end-line="180" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -481,59 +477,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/Servants.py">
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/UIAssetImport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="619">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/PlayerStats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        <state relative-caret-position="136">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/BattleGUI.py">
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Maps/Chaldea 1-1_Enemies.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/GlobalLibrary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/MenuGUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="269" column="97" selection-start-line="269" selection-start-column="97" selection-end-line="269" selection-end-column="97" />
+        <state relative-caret-position="511">
+          <caret line="443" column="41" lean-forward="true" selection-start-line="443" selection-start-column="41" selection-end-line="443" selection-end-column="41" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#236#1640#0" />
-            <element signature="e#1680#1702#0" />
-            <element signature="e#1747#1768#0" />
-            <element signature="e#1698#2022#0" />
-            <element signature="e#1812#2269#0" />
-            <element signature="e#2672#4877#0" />
-            <element signature="e#3410#3436#0" />
-            <element signature="e#3534#3560#0" />
-            <element signature="e#4361#4517#0" />
-            <element signature="e#4620#4725#0" />
-            <element signature="e#4696#6506#0" />
-            <element signature="e#7442#8222#0" />
-            <element signature="e#8735#9137#0" />
-            <element signature="e#8892#15143#0" />
-            <element signature="e#15509#15748#0" />
-            <element signature="e#7757#14970#0" />
-            <element signature="e#15012#17475#0" />
-            <element signature="e#17521#18443#0" />
-            <element signature="e#18487#19559#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/GridManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="36" column="40" lean-forward="true" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/BattleGUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2920">
+          <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/TurnTracker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="35" column="55" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/Servants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inital Attempt/Scripts/EnemyAI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
         </state>
       </provider>
     </entry>

@@ -437,10 +437,8 @@ class Main:
         turn_tracker.GUI = battle_interface
         grid_manager = GridManager.Main(grid_amount=grid_amount, grid_size=grid_size, GUI=battle_interface,
                                         turn_tracker=turn_tracker)
+        turn_tracker.grid_manager = grid_manager
         battle_interface.grid_manager = grid_manager
-        grid_manager.load_map("Chaldea 1-1")
-        grid_manager.display_grid_graphics()
-        grid_manager.spawn_player_servants(self.player_servants)
-        grid_manager.set_grid_pos(4, 4, Servants.get_servant("Merlin"))
+        grid_manager.load_map("Chaldea 1-1", self.player_servants)
         turn_tracker.display_current_turn()
         battle_interface.start_mainloop()

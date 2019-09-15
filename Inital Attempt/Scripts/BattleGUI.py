@@ -1,8 +1,9 @@
 import tkinter
+import random
 
 from PIL import Image, ImageTk
 
-from Scripts import UIAssetImport, GlobalLibrary, MenuGUI
+from Scripts import UIAssetImport, GlobalLibrary, MenuGUI, EnemyAI
 
 GlobalLibrary.initalise(__file__)
 
@@ -10,6 +11,7 @@ GlobalLibrary.initalise(__file__)
 class Main:
 
     def __init__(self, window, user_IP, grid_amount, grid_size, turn_tracker, player_stats):
+        GlobalLibrary.initalise(Main.__name__)
         self.window = window
         # Set ""Global"" Variables
         self.user_IP = user_IP
@@ -62,6 +64,8 @@ class Main:
         self.window.destroy()
 
     def start_mainloop(self):
+        self.enemy_AI = EnemyAI.Main(self.grid_manager, self)
+        self.turn_tracker.enemy_AI = self.enemy_AI
         self.window.mainloop()
 
     def open_main_menu(self, event):
@@ -117,16 +121,16 @@ class Main:
         self.selection_array.clear()
         if isinstance(click_selection, dict):
             for image_ref in self.image_ref_array:
-                if image_ref['Name'] == click_selection['Name'] == self.turn_tracker.TurnCounterDict[
+                if image_ref['Name'] == click_selection['Name'] == self.turn_tracker.TurnCounterList[
                     self.turn_tracker.CurrentTurnCounter]:
                     self.servant_selected_both(click_selection)
-                elif image_ref['Name'] == click_selection['Name'] != self.turn_tracker.TurnCounterDict[
+                elif image_ref['Name'] == click_selection['Name'] != self.turn_tracker.TurnCounterList[
                     self.turn_tracker.CurrentTurnCounter]:
                     self.selected_servant = click_selection
                     self.display_servant_stats()
 
     def servant_selected_both(self, click_selection):
-        GlobalLibrary.debug(click_selection['Name'] + " selected.")
+        GlobalLibrary.notice(click_selection['Name'] + " selected.")
         self.selected_servant = click_selection
         selected_servant_move = (self.selected_servant['Move'] * 2) + 1
         selected_servant_move_start_x = (
@@ -219,7 +223,7 @@ class Main:
                                         font=("Coolvetica Rg", 14)))
         self.selection_array.append(
             self.canvas.create_text((self.monitor_resolution_x / 2) - 200, self.monitor_resolution_y - 32,
-                                    text=str("HP " + str(self.selected_servant['HP'])), fill="#cccccc",
+                                    text=str("HP " + str(self.selected_servant['CurrentHP'])), fill="#cccccc",
                                     font=("Coolvetica Rg", 20)))
         self.selection_array.append(
             self.canvas.create_text((self.monitor_resolution_x / 2), self.monitor_resolution_y - 32,
@@ -232,19 +236,35 @@ class Main:
 
     def servant_selected_move_click(self, event):
         self.selected_servant = object
-        self.servant_has_moved = True
         new_x = int((event.x - self.grid_origin_x) / self.grid_size)
         new_y = int((event.y - self.grid_origin_y) / self.grid_size)
         self.grid_manager.move_grid_pos(self.grid_clicked_x, self.grid_clicked_y, new_x, new_y, is_entity=True)
         self.turn_tracker.next_turn()
 
     def servant_selected_attack_click(self, event):
-        self.selected_servant = object
-        self.servant_has_moved = False
         new_x = int((event.x - self.grid_origin_x) / self.grid_size)
         new_y = int((event.y - self.grid_origin_y) / self.grid_size)
+        servant = self.grid_manager.get_grid_pos(new_x, new_y)
+        if random.randint(0,20) == 30:
+            damage = int(self.selected_servant['ATK'] / 2 * (random.randint(7, 10)/10))
+            servant['CurrentHP'] -= damage
+            GlobalLibrary.notice(
+                str(self.selected_servant['Name'] + " critted " + servant['Name'] + " for " + str(damage)))
+        else:
+            damage = int(self.selected_servant['ATK'] * (random.randint(7, 10)/10))
+            servant['CurrentHP'] -= damage
+            GlobalLibrary.notice(
+                str(self.selected_servant['Name'] + " attacked " + servant['Name'] + " for " + str(damage)))
+        if servant['CurrentHP'] <= 0:
+            self.grid_manager.set_grid_pos(new_x, new_y, "#", True)
+            for image in self.image_ref_array:
+                if image['Name'] == servant['Name']:
+                    image_ref = image['Image']
+                    self.canvas.delete(image_ref)
+            GlobalLibrary.notice(str(servant['Name'] + " has died!"))
+        else:
+            self.grid_manager.set_grid_pos(new_x, new_y, servant, True)
         self.turn_tracker.next_turn()
-        # insert attack call here
 
     def move_servant(self, entity, old_x, old_y, new_x, new_y):
         move_x = (new_x - old_x) * self.grid_size
