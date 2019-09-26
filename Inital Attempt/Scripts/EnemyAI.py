@@ -30,10 +30,8 @@ class Main:
                 if target[3] > current_target[3]:
                     current_target = target
             if int(abs(x - current_target[1])) <= entity['Range'] and int(abs(y - current_target[2])) <= entity['Range']:
-                print("attack")
                 self.GUI.servant_selected_attack(entity, current_target[0], current_target[1], current_target[2])
             elif int(abs(x - current_target[1])) <= int(entity['Move']*2) and int(abs(y - current_target[2])) <= int(entity['Move']*2):
-                print("move")
                 new_x = (x - current_target[1]) % entity['Move']
                 if new_x == 0 and current_target[1] < x:
                     new_x = (x - entity['Move'])+1
@@ -57,5 +55,4 @@ class Main:
                 else:
                     new_y = y
 
-                print(x, y, new_x, new_y)
                 self.grid_manager.move_grid_pos(x, y, new_x, new_y, True)

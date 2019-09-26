@@ -439,6 +439,7 @@ class Main:
                                         turn_tracker=turn_tracker)
         turn_tracker.grid_manager = grid_manager
         battle_interface.grid_manager = grid_manager
-        grid_manager.load_map("Chaldea 1-1", self.player_servants)
+        #grid_manager.load_map("Chaldea 1-1", self.player_servants)
+        grid_manager.load_map("Minecraft", self.player_servants)
         turn_tracker.display_current_turn()
         battle_interface.start_mainloop()

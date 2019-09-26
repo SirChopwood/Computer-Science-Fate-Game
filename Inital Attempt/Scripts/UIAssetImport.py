@@ -32,42 +32,6 @@ class Battle:
         GUI.ui_class_shielder = self.image("Pictures/Classes/Shielder.png")
         GUI.ui_class_berserker = self.image("Pictures/Classes/Berserker.png")
 
-        # TERRAIN TILES
-        GUI.ui_tiles_chaldea = {}
-        GUI.ui_tiles_chaldea.update(
-            {"Single": self.image_resize("Pictures/Terrain/Chaldea/Single.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"X": self.image_resize("Pictures/Terrain/Chaldea/X.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Straight_H": self.image_resize("Pictures/Terrain/Chaldea/Straight_H.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Straight_V": self.image_resize("Pictures/Terrain/Chaldea/Straight_V.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Floor": self.image_resize("Pictures/Terrain/Chaldea/Floor.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Corner_BR": self.image_resize("Pictures/Terrain/Chaldea/Corner_BR.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Corner_BL": self.image_resize("Pictures/Terrain/Chaldea/Corner_BL.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Corner_TR": self.image_resize("Pictures/Terrain/Chaldea/Corner_TR.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"Corner_TL": self.image_resize("Pictures/Terrain/Chaldea/Corner_TL.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"T_RBL": self.image_resize("Pictures/Terrain/Chaldea/T_RBL.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"T_RTL": self.image_resize("Pictures/Terrain/Chaldea/T_RTL.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"T_TLB": self.image_resize("Pictures/Terrain/Chaldea/T_TLB.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"T_TRB": self.image_resize("Pictures/Terrain/Chaldea/T_TRB.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"End_T": self.image_resize("Pictures/Terrain/Chaldea/End_T.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"End_B": self.image_resize("Pictures/Terrain/Chaldea/End_B.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"End_L": self.image_resize("Pictures/Terrain/Chaldea/End_L.png", grid_size, grid_size)})
-        GUI.ui_tiles_chaldea.update(
-            {"End_R": self.image_resize("Pictures/Terrain/Chaldea/End_R.png", grid_size, grid_size)})
         GlobalLibrary.notice("Battle Graphical Assets Imported")
 
     def image(self, file_path):
@@ -201,3 +165,9 @@ def image_scale(file_path, scale):
     image_reference = image_reference.resize((scale_x, scale_y), Image.ANTIALIAS)
     image_reference = ImageTk.PhotoImage(image_reference)
     return image_reference
+
+def load_tileset(tileset, grid_size, GUI):  # TERRAIN TILES
+    GUI.ui_tiles = {}
+    for tile in tileset:
+        GUI.ui_tiles.update({tile[0]: image_resize(tile[1], grid_size, grid_size)})
+    GlobalLibrary.notice("Tileset Imported")
