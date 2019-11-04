@@ -1,121 +1,45 @@
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\EnemyAI.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
-[2019/09/26 22:18:13] [INIT]    F:\Projects\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
-[2019/09/26 22:18:13] [INIT]    F:/Projects/Computer-Science-Fate-Game/Inital Attempt/Main.py
-[2019/09/26 22:18:13] [DEBUG]   DESKTOP-UEPMT4O | 192.168.0.37
-[2019/09/26 22:18:13] [INIT]    Cover
-[2019/09/26 22:18:14] [NOTICE]  Menu Graphical Assets Imported
-[2019/09/26 22:18:14] [INIT]    Menu
-[2019/09/26 22:18:14] [NOTICE]  Menu Graphical Assets Imported
-[2019/09/26 22:18:14] [INIT]    ServantDatabase
-[2019/09/26 22:18:14] [NOTICE]  Connecting to Mongo Server!
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Jeanne D'arc.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Astolfo.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Astolfo.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Mordred Pendragon.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Cu Chulainn (Prototype).json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Cu Chulainn (Prototype).json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Jack the Ripper.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Jack the Ripper.json
-[2019/09/26 22:18:15] [DEBUG]   File Found - Servants/Merlin.json
-[2019/09/26 22:18:15] [DEBUG]   File Matched - Servants/Merlin.json
-[2019/09/26 22:18:15] [NOTICE]  File Sync Complete!
-[2019/09/26 22:18:15] [INIT]    PlayerDatabase
-[2019/09/26 22:18:15] [NOTICE]  Connecting to Mongo Server!
-[2019/09/26 22:18:15] [INIT]    Main
-[2019/09/26 22:18:15] [INIT]    PlayerDatabase
-[2019/09/26 22:18:15] [NOTICE]  Connecting to Mongo Server!
-[2019/09/26 22:18:16] [INIT]    Main
-[2019/09/26 22:18:16] [ERROR]   Servant needs icon: Mashu Kyrielight
-[2019/09/26 22:18:16] [ERROR]   Servant needs icon: Jeanne D'arc
-[2019/09/26 22:18:16] [ERROR]   Servant needs icon: Artoria Pendragon (Lily)
-[2019/09/26 22:18:16] [ERROR]   Servant needs icon: Kid Gilgamesh
-[2019/09/26 22:18:16] [ERROR]   Servant needs icon: Chloe von Einzbern
-[2019/09/26 22:18:16] [INIT]    Main
-[2019/09/26 22:18:16] [INIT]    Main
-[2019/09/26 22:18:16] [INIT]    Battle
-[2019/09/26 22:18:16] [NOTICE]  Battle Graphical Assets Imported
-[2019/09/26 22:18:16] [INIT]    Main
-[2019/09/26 22:18:16] [NOTICE]  Tileset Imported
-[2019/09/26 22:18:16] [INIT]    Main
-[2019/09/26 22:18:23] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:18:23] [NOTICE]  Turn: 0
-[2019/09/26 22:18:24] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:18:26] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:18:27] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:18:28] [NOTICE]  Turn: 0
-[2019/09/26 22:18:29] [NOTICE]  Cu Chulainn (Prototype) selected.
-[2019/09/26 22:18:30] [NOTICE]  Turn: 0
-[2019/09/26 22:18:30] [NOTICE]  Enemy Merlin's turn has started!
-[2019/09/26 22:18:30] [NOTICE]  Turn: 0
-[2019/09/26 22:18:30] [NOTICE]  Enemy Jack the Ripper's turn has started!
-[2019/09/26 22:18:30] [NOTICE]  Turn: 1
-[2019/09/26 22:18:31] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:18:31] [NOTICE]  Turn: 1
-[2019/09/26 22:18:32] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:18:33] [NOTICE]  Turn: 1
-[2019/09/26 22:18:34] [NOTICE]  Cu Chulainn (Prototype) selected.
-[2019/09/26 22:18:35] [NOTICE]  Turn: 1
-[2019/09/26 22:18:35] [NOTICE]  Enemy Merlin's turn has started!
-[2019/09/26 22:18:35] [NOTICE]  Turn: 1
-[2019/09/26 22:18:35] [NOTICE]  Enemy Jack the Ripper's turn has started!
-[2019/09/26 22:18:35] [NOTICE]  Turn: 2
-[2019/09/26 22:18:39] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:18:40] [NOTICE]  Turn: 2
-[2019/09/26 22:18:40] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:18:41] [NOTICE]  Turn: 2
-[2019/09/26 22:18:42] [NOTICE]  Cu Chulainn (Prototype) selected.
-[2019/09/26 22:18:43] [NOTICE]  Turn: 2
-[2019/09/26 22:18:43] [NOTICE]  Enemy Merlin's turn has started!
-[2019/09/26 22:18:43] [NOTICE]  Turn: 2
-[2019/09/26 22:18:43] [NOTICE]  Enemy Jack the Ripper's turn has started!
-[2019/09/26 22:18:43] [NOTICE]  Turn: 3
-[2019/09/26 22:18:47] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:18:48] [NOTICE]  Illyasviel von Einzbern attacked Jack the Ripper for 3521
-[2019/09/26 22:18:48] [NOTICE]  Jack the Ripper has died!
-[2019/09/26 22:18:48] [NOTICE]  Turn: 3
-[2019/09/26 22:18:56] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:19:05] [NOTICE]  Turn: 3
-[2019/09/26 22:19:06] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:19:07] [NOTICE]  Turn: 3
-[2019/09/26 22:19:08] [NOTICE]  Cu Chulainn (Prototype) selected.
-[2019/09/26 22:19:09] [NOTICE]  Turn: 3
-[2019/09/26 22:19:09] [NOTICE]  Enemy Merlin's turn has started!
-[2019/09/26 22:19:09] [NOTICE]  Turn: 4
-[2019/09/26 22:19:11] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:19:12] [NOTICE]  Illyasviel von Einzbern attacked Merlin for 2464
-[2019/09/26 22:19:12] [NOTICE]  Turn: 4
-[2019/09/26 22:19:13] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:19:14] [NOTICE]  Turn: 4
-[2019/09/26 22:19:14] [NOTICE]  Cu Chulainn (Prototype) selected.
-[2019/09/26 22:19:15] [NOTICE]  Turn: 4
-[2019/09/26 22:19:15] [NOTICE]  Enemy Merlin's turn has started!
-[2019/09/26 22:19:15] [NOTICE]  Merlin attacked Mordred Pendragon for 1533
-[2019/09/26 22:19:15] [NOTICE]  Turn: 5
-[2019/09/26 22:19:16] [NOTICE]  Illyasviel von Einzbern selected.
-[2019/09/26 22:19:17] [NOTICE]  Illyasviel von Einzbern attacked Merlin for 2464
-[2019/09/26 22:19:17] [NOTICE]  Turn: 5
-[2019/09/26 22:19:17] [NOTICE]  Mordred Pendragon selected.
-[2019/09/26 22:19:18] [NOTICE]  Mordred Pendragon attacked Merlin for 2716
-[2019/09/26 22:19:18] [NOTICE]  Merlin has died!
-[2019/09/26 22:19:18] [NOTICE]  Turn: 5
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\EnemyAI.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
+[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
+[2019/11/04 02:05:15] [INIT]    C:/Users/pokem/Desktop/Computer-Science-Fate-Game/Inital Attempt/Main.py
+[2019/11/04 02:05:15] [DEBUG]   DESKTOP-MM5LJG1 | 192.168.0.22
+[2019/11/04 02:05:15] [INIT]    Cover
+[2019/11/04 02:05:16] [NOTICE]  Menu Graphical Assets Imported
+[2019/11/04 02:05:16] [INIT]    Menu
+[2019/11/04 02:05:16] [NOTICE]  Menu Graphical Assets Imported
+[2019/11/04 02:05:16] [INIT]    ServantDatabase
+[2019/11/04 02:05:16] [NOTICE]  Connecting to Mongo Server!
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Jeanne D'arc.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Astolfo.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Astolfo.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Mordred Pendragon.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Cu Chulainn (Prototype).json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Cu Chulainn (Prototype).json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Jack the Ripper.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Jack the Ripper.json
+[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Merlin.json
+[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Merlin.json
+[2019/11/04 02:05:17] [NOTICE]  File Sync Complete!
+[2019/11/04 02:05:17] [INIT]    PlayerDatabase
+[2019/11/04 02:05:17] [NOTICE]  Connecting to Mongo Server!
+[2019/11/04 02:05:17] [INIT]    Main
