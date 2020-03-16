@@ -17,6 +17,7 @@ def get_servant(name):
 def get_player_servants(servant_database):
     player_servants = servant_database
     servant_list = []
+    GlobalLibrary.debug(str(player_servants["ActiveServants"]))
     for i in range(0, 3):
         servant = player_servants["Servants"][int(player_servants["ActiveServants"][i])]
         file_path = str("Servants/" + servant + ".json")
@@ -40,21 +41,24 @@ def get_all_player_servants(servant_database):
     servant_list = []
     servant_list_master = []
     for i in range(len(servant_database["Servants"])):
-        servant = servant_database["Servants"][i]
-        file_path = str("Servants/" + servant + ".json")
-        with open(file_path, 'r', encoding="utf8") as file_ref:
-            json_ref = json.load(file_ref)  # Load file into JSON module
-        servant_level = int(servant_database["Levels"][i])
-        json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (servant_level / 30)))
-        json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (servant_level / 30)))
-        json_ref.update({"Level": servant_level})
-        json_ref.update({"Allied": True})
-        json_ref.update({"CurrentHP": int(int(json_ref["HP"]) * (1 + (servant_level / 30)))})
-        json_ref.update({"CurrentNP": 0})
-        servant_list.append(json_ref)
-        if len(servant_list) == 10:
-            servant_list_master.append(servant_list)
-            servant_list = []
+        try:
+            servant = servant_database["Servants"][i]
+            file_path = str("Servants/" + servant + ".json")
+            with open(file_path, 'r', encoding="utf8") as file_ref:
+                json_ref = json.load(file_ref)  # Load file into JSON module
+            servant_level = int(servant_database["Levels"][i])
+            json_ref["HP"] = int(int(json_ref["HP"]) * (1 + (servant_level / 30)))
+            json_ref["ATK"] = int(int(json_ref["ATK"]) * (1 + (servant_level / 30)))
+            json_ref.update({"Level": servant_level})
+            json_ref.update({"Allied": True})
+            json_ref.update({"CurrentHP": int(int(json_ref["HP"]) * (1 + (servant_level / 30)))})
+            json_ref.update({"CurrentNP": 0})
+            servant_list.append(json_ref)
+            if len(servant_list) == 10:
+                servant_list_master.append(servant_list)
+                servant_list = []
+        except KeyError:
+            GlobalLibrary.error("Servant File Error")
 
     servant_list_master.append(servant_list)
     return servant_list_master

@@ -14,19 +14,15 @@ class Main:
         window.attributes("-fullscreen", True)
         # Set Window
         window.title("Fate Game")
-        # Set ""Global"" Variables
+        # Set ""Class"" Variables
         self.user_IP = user_IP
-        self.image_array = []
-        self.image_ref_array = []
         self.monitor_resolution_x = window.winfo_screenwidth()
         self.monitor_resolution_y = window.winfo_screenheight()
-        if not hasattr(self, 'canvas'):
-            UIAssetImport.Cover(self)
+        UIAssetImport.Cover(self)
         # Create main Canvas
         self.canvas = tkinter.Canvas(window, width=self.monitor_resolution_x, height=self.monitor_resolution_y,
                                      bg="#333337", bd=0, highlightthickness=0, relief='ridge')
         self.canvas.pack()
-
         self.canvas.create_image(0, 0, image=self.wallpaper, anchor="nw")
         self.canvas.create_image(10, 0, image=self.logo_image, anchor="nw", tags="logo_image")
         self.canvas.tag_bind("logo_image", "<Button-1>", self.quit_program)

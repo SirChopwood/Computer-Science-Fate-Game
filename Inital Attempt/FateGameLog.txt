@@ -1,45 +1,82 @@
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\EnemyAI.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
-[2019/11/04 02:05:15] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
-[2019/11/04 02:05:15] [INIT]    C:/Users/pokem/Desktop/Computer-Science-Fate-Game/Inital Attempt/Main.py
-[2019/11/04 02:05:15] [DEBUG]   DESKTOP-MM5LJG1 | 192.168.0.22
-[2019/11/04 02:05:15] [INIT]    Cover
-[2019/11/04 02:05:16] [NOTICE]  Menu Graphical Assets Imported
-[2019/11/04 02:05:16] [INIT]    Menu
-[2019/11/04 02:05:16] [NOTICE]  Menu Graphical Assets Imported
-[2019/11/04 02:05:16] [INIT]    ServantDatabase
-[2019/11/04 02:05:16] [NOTICE]  Connecting to Mongo Server!
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Jeanne D'arc.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Astolfo.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Astolfo.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Mordred Pendragon.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Cu Chulainn (Prototype).json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Cu Chulainn (Prototype).json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Jack the Ripper.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Jack the Ripper.json
-[2019/11/04 02:05:17] [DEBUG]   File Found - Servants/Merlin.json
-[2019/11/04 02:05:17] [DEBUG]   File Matched - Servants/Merlin.json
-[2019/11/04 02:05:17] [NOTICE]  File Sync Complete!
-[2019/11/04 02:05:17] [INIT]    PlayerDatabase
-[2019/11/04 02:05:17] [NOTICE]  Connecting to Mongo Server!
-[2019/11/04 02:05:17] [INIT]    Main
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\GlobalLibrary.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\UIAssetImport.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\Servants.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\GridManager.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\PlayerStats.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\TurnTracker.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\EnemyAI.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\BattleGUI.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\Mongo.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\MenuGUI.py
+[2020/03/16 09:26:59] [INIT]    C:\Users\pokem\Desktop\Computer-Science-Fate-Game\Inital Attempt\Scripts\CoverGUI.py
+[2020/03/16 09:26:59] [INIT]    C:/Users/pokem/Desktop/Computer-Science-Fate-Game/Inital Attempt/Main.py
+[2020/03/16 09:26:59] [DEBUG]   DESKTOP-MM5LJG1 | 192.168.43.35
+[2020/03/16 09:26:59] [INIT]    Cover
+[2020/03/16 09:27:00] [NOTICE]  Menu Graphical Assets Imported
+[2020/03/16 09:27:00] [INIT]    Menu
+[2020/03/16 09:27:00] [NOTICE]  Menu Graphical Assets Imported
+[2020/03/16 09:27:00] [INIT]    ServantDatabase
+[2020/03/16 09:27:00] [NOTICE]  Connecting to Mongo Server!
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Jeanne D'arc.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Jeanne D'arc.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Mashu Kyrielight.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Mashu Kyrielight.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Kid Gilgamesh.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Kid Gilgamesh.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Artoria Pendragon (Lily).json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Artoria Pendragon (Lily).json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Chloe von Einzbern.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Chloe von Einzbern.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Astolfo.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Astolfo.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Illyasviel von Einzbern.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Illyasviel von Einzbern.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Mordred Pendragon.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Mordred Pendragon.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Cu Chulainn (Prototype).json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Cu Chulainn (Prototype).json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Jack the Ripper.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Jack the Ripper.json
+[2020/03/16 09:27:14] [DEBUG]   File Found - Servants/Merlin.json
+[2020/03/16 09:27:14] [DEBUG]   File Matched - Servants/Merlin.json
+[2020/03/16 09:27:14] [NOTICE]  File Sync Complete!
+[2020/03/16 09:27:14] [INIT]    PlayerDatabase
+[2020/03/16 09:27:14] [NOTICE]  Connecting to Mongo Server!
+[2020/03/16 09:27:27] [INIT]    Main
+[2020/03/16 09:27:27] [DEBUG]   [3, 1, 9]
+[2020/03/16 09:27:27] [INIT]    PlayerDatabase
+[2020/03/16 09:27:27] [NOTICE]  Connecting to Mongo Server!
+[2020/03/16 09:27:40] [INIT]    Main
+[2020/03/16 09:27:40] [DEBUG]   [3, 1, 9]
+[2020/03/16 09:27:40] [ERROR]   Servant File Error
+[2020/03/16 09:27:40] [ERROR]   Servant needs icon: Mashu Kyrielight
+[2020/03/16 09:27:40] [ERROR]   Servant needs icon: Jeanne D'arc
+[2020/03/16 09:27:40] [ERROR]   Servant needs icon: Artoria Pendragon (Lily)
+[2020/03/16 09:27:40] [ERROR]   Servant needs icon: Kid Gilgamesh
+[2020/03/16 09:27:40] [ERROR]   Servant needs icon: Chloe von Einzbern
+[2020/03/16 09:28:16] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2020/03/16 09:28:16] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2020/03/16 09:28:16] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:28:18] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:27] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2020/03/16 09:29:27] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2020/03/16 09:29:27] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:36] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2020/03/16 09:29:36] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2020/03/16 09:29:36] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:37] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:39] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:40] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:41] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2020/03/16 09:29:41] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2020/03/16 09:29:41] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:42] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:43] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:45] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2020/03/16 09:29:45] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2020/03/16 09:29:45] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:48] [ERROR]   REMEMBER TO ADD ICON PATHS TO SERVANTS!!!
+[2020/03/16 09:29:48] [ERROR]   REMEMBER TO ADD CLASSES TO SERVANTS
+[2020/03/16 09:29:48] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:50] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS
+[2020/03/16 09:29:53] [ERROR]   REMEMBER TO ADD DESCRIPTIONS TO SERVANTS

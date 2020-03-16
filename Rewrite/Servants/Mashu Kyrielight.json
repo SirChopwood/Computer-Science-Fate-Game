@@ -1,0 +1,10 @@
+{
+  "_id": "5d2c88ca1c9d440000934201",
+  "Icon": "Pictures/Mashu.png",
+  "HP": 2060,
+  "ATK": 1455,
+  "Move": 3,
+  "Name": "Mashu Kyrielight",
+  "NP": "Lord Chaldeas",
+  "NPClass": "Anti-Unit"
+}

@@ -59,10 +59,9 @@ class Cover:
     def __init__(self, GUI):
         GlobalLibrary.initalise(Cover.__name__)
 
-        # INTERFACE ASSETS
-        GUI.wallpaper = self.image_resize(
-            str("Pictures/Wallpapers/" + random.choice(os.listdir("Pictures/Wallpapers"))), GUI.monitor_resolution_x,
-            GUI.monitor_resolution_y)
+        image_reference = Image.open(str("Pictures/Wallpapers/" + random.choice(os.listdir("Pictures/Wallpapers"))))
+        image_reference = image_reference.resize((GUI.monitor_resolution_x, GUI.monitor_resolution_y), Image.ANTIALIAS)
+        GUI.wallpaper = ImageTk.PhotoImage(image_reference)
         GUI.logo_image = self.image_resize("Pictures/Logo.png", int(GUI.monitor_resolution_x / 4),
                                            int(GUI.monitor_resolution_y / 4))
         GUI.ui_click_to_start = self.image_scale("Pictures/UI/ClickToStart.png", 0.5)
